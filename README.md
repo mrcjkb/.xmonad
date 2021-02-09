@@ -1,10 +1,6 @@
-# My xmonad build and config.
+# My XMonad build and config.
 
----
-
-STATE: Draft
-
----
+[![Generic badge](https://img.shields.io/badge/STATE:-DRAFT-yellow.svg)](https://shields.io/)
 
 ## Installation
 
