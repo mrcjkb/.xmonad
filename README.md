@@ -10,7 +10,8 @@ STATE: Draft
 
 - Checkout this repo to ~/.xmonad
 - `cd ~/.xmonad`
-- Init all submodules: `git submodule --update --init --force --recursive .`
+- Init all submodules:  
+`git submodule --update --init --force --recursive .`
 - `Stack install``
 
 
