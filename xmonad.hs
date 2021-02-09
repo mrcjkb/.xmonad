@@ -29,6 +29,9 @@ import XMonad.Layout.Gaps
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Data.Maybe (maybeToList)
+
+import qualified WindowState as WS
+
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal      = "alacritty"
 
@@ -102,14 +105,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_F1    ), spawn "betterlockscreen -l")
 
     -- launch rofi and dashboard
-    , ((modm,               xK_o     ), spawn "~/bin/launcher.sh")
+    , ((modm,               xK_o     ), spawn "rofi -show drun -theme vapor.rasi")
+    , ((modm .|. shiftMask, xK_o     ), spawn "rofi -show run -theme vapor.rasi")
     --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
     , ((modm .|. shiftMask, xK_p     ), spawn "exec ~/bin/ewwclose")
 
     -- launch eww sidebar
     , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
     , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
-
+    
+    -- Toggle floating window
+    , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     -- Audio keys
     , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")
     , ((0,                    xF86XK_AudioPrev), spawn "playerctl previous")
@@ -402,7 +408,7 @@ help = unlines ["The default modifier key is 'super'. Default keybindings:",
     "mod-l  Expand the master area",
     "",
     "-- floating layer support",
-    "mod-t  Push window back into tiling; unfloat and re-tile it",
+    "mod-shift-f  Toggle floating of curren window",
     "",
     "-- increase or decrease number of windows in the master area",
     "mod-comma  (mod-,)   Increment the number of windows in the master area",
