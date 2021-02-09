@@ -10,7 +10,7 @@ The build is successful, but the dependencies of `xmonad.hs` have not all been d
 - `cd ~/.xmonad`
 - Init all submodules:  
 `git submodule --update --init --force --recursive .`
-- `Stack install``
+- `stack install``
 
 
 ## Troubleshooting
@@ -19,6 +19,7 @@ If an error occurs during compilation, it is likely because a package is missing
 Check the respective error message and install the missing packages.
 
 E.g.
+- gcc requires `base-devel` (Arch Linux) or `build-essential` (Debian)
 - alsa requires `libasound-dev`
 - X11 requires `libxrandr-dev`, `libxss-dev`
 - X11-xft requires `libxft-dev`
