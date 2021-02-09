@@ -2,6 +2,8 @@
 
 [![Generic badge](https://img.shields.io/badge/STATE:-DRAFT-yellow.svg)](https://shields.io/)
 
+The build is successful, but the dependencies of `xmonad.hs` have not all been documented.
+
 ## Installation
 
 - Checkout this repo to ~/.xmonad
