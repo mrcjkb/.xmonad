@@ -2,6 +2,9 @@ module Layout where
 
 import XMonad
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
+import XMonad.Layout.Gaps
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -14,6 +17,9 @@ import XMonad.Hooks.ManageDocks
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
+
+myLayoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True $ smartBorders $ myLayout
+
 myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
