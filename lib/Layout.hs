@@ -5,6 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Layout.LayoutModifier
 
 ------------------------------------------------------------------------
 -- Layouts:
