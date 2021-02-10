@@ -8,28 +8,27 @@
 --
 import XMonad
 import XMonad.Layout.Fullscreen
-    ( fullscreenEventHook, fullscreenManageHook, fullscreenSupport, fullscreenFull )
-import Data.Monoid ()
-import System.Exit ()
-import XMonad.Util.SpawnOnce ( spawnOnce )
-import Control.Monad ( join, when )
-import XMonad.Hooks.EwmhDesktops ( ewmh )
+import Data.Monoid
+import System.Exit
+import XMonad.Util.SpawnOnce
+import Control.Monad
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageDocks
-    ( avoidStruts, docks, manageDocks, Direction2D(D, L, R, U) )
-import XMonad.Hooks.ManageHelpers ( doFullFloat, isFullscreen )
-import XMonad.Layout.Spacing ( spacingRaw, Border(Border) )
-
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-import Data.Maybe (maybeToList)
+import Data.Maybe
 
 import qualified WindowState as WS
 import KeyBindings
+import MouseBindings
 
 -- The preferred terminal program, which is used in a binding below and by
-myTerminal      = "alacritty"
+myTerminal :: String
+myTerminal = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -41,14 +40,14 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod4Mask
+myModMask = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -60,7 +59,7 @@ myModMask       = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces :: [String]
-myWorkspaces    = map show [1..9]
+myWorkspaces = map show [1..9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -87,24 +86,6 @@ addEWMHFullscreen   = do
 
 
 
-------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
---
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
-
-    -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
-                                      >> windows W.shiftMaster)
-
-    -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
-
-    -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), \w -> focus w >> mouseResizeWindow w
-                                      >> windows W.shiftMaster)
-
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
-    ]
 
 ------------------------------------------------------------------------
 -- Layouts:
