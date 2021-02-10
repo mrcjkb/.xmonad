@@ -7,7 +7,6 @@
 -- Normally, you'd only override those defaults you care about.
 --
 import XMonad
-import XMonad.Util.SpawnOnce
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
@@ -27,6 +26,7 @@ import KeyBindings
 import MouseBindings
 import Layout
 import WindowRules
+import StartupHook
 
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal :: String
@@ -107,24 +107,6 @@ myEventHook = mempty
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook = return ()
-
-------------------------------------------------------------------------
--- Startup hook
-
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
-myStartupHook = do
-  -- spawnOnce "exec ~/bin/bartoggle"
-  spawnOnce "exec ~/bin/eww daemon"
-  spawn "xsetroot -cursor_name left_ptr"
-  spawn "exec ~/bin/lock.sh"
-  spawnOnce "feh --bg-scale ~/wallpapers/yosemite-lowpoly.jpg"
-  spawnOnce "picom -f"
-  spawnOnce "greenclip daemon"
-  spawnOnce "dunst"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
