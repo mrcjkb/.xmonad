@@ -7,25 +7,26 @@
 -- Normally, you'd only override those defaults you care about.
 --
 import XMonad
-import XMonad.Layout.Fullscreen
-import Data.Monoid
-import System.Exit
 import XMonad.Util.SpawnOnce
-import Control.Monad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
-import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Spacing
-import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
 import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
+import XMonad.Hooks.ManageDocks
+
+import System.Exit
+import Data.Monoid
+import qualified Data.Map as M
 import Data.Maybe
+import Control.Monad
 
 import qualified WindowState as WS
 import KeyBindings
 import MouseBindings
 import Layout
+import WindowRules
 
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal :: String
@@ -86,29 +87,6 @@ addEWMHFullscreen   = do
     mapM_ addNETSupported [wms, wfs]
 
 
-
-------------------------------------------------------------------------
--- Window rules:
-
--- Execute arbitrary actions and WindowSet manipulations when managing
--- a new window. You can use this to, for example, always float a
--- particular program, or have a client always appear on a particular
--- workspace.
---
--- To find the property name associated with a program, use
--- > xprop | grep WM_CLASS
--- and click on the client you're interested in.
---
--- To match on the WM_NAME, you can use 'title' in the same way that
--- 'className' and 'resource' are used below.
---
-myManageHook = fullscreenManageHook <+> manageDocks <+> composeAll
-    [ className =? "MPlayer"        --> doFloat
-   --, className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
-    , isFullscreen --> doFullFloat
-                                 ]
 
 ------------------------------------------------------------------------
 -- Event handling
