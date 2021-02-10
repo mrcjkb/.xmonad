@@ -1,32 +1,18 @@
---
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
---
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
-import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
 
-import System.Exit
-import Data.Monoid
-import qualified Data.Map as M
-import Data.Maybe
-import Control.Monad
-
-import qualified WindowState as WS
+-- Modules in ~/.xmonad/lib directory
 import KeyBindings
 import MouseBindings
 import Layout
 import WindowRules
 import StartupHook
+import LogHook
 
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal :: String
@@ -70,23 +56,6 @@ myNormalBorderColor  = "#3b4252"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#bc96da"
 
-addNETSupported :: Atom -> X ()
-addNETSupported x   = withDisplay $ \dpy -> do
-    r               <- asks theRoot
-    a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
-    a               <- getAtom "ATOM"
-    liftIO $ do
-       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
-       when (fromIntegral x `notElem` sup) $
-         changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
-
-addEWMHFullscreen :: X ()
-addEWMHFullscreen   = do
-    wms <- getAtom "_NET_WM_STATE"
-    wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
-    mapM_ addNETSupported [wms, wfs]
-
-
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -101,46 +70,30 @@ myEventHook = mempty
 
 
 ------------------------------------------------------------------------
--- Status bars and logging
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
-
-------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = xmonad $ fullscreenSupport $ docks $ ewmh defaults
+ where defaults = def {
+          -- simple stuff
+          terminal           = myTerminal,
+          focusFollowsMouse  = myFocusFollowsMouse,
+          clickJustFocuses   = myClickJustFocuses,
+          borderWidth        = myBorderWidth,
+          modMask            = myModMask,
+          workspaces         = myWorkspaces,
+          normalBorderColor  = myNormalBorderColor,
+          focusedBorderColor = myFocusedBorderColor,
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
-      -- simple stuff
-        terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
-        borderWidth        = myBorderWidth,
-        modMask            = myModMask,
-        workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
+          -- key bindings
+          keys               = myKeys,
+          mouseBindings      = myMouseBindings,
 
-      -- key bindings
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
-
-      -- hooks, layouts
-        manageHook = myManageHook, 
-        layoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True $ smartBorders $ myLayout,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook,
-        startupHook        = myStartupHook >> addEWMHFullscreen
+          -- hooks, layouts
+          manageHook = myManageHook, 
+          layoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True $ smartBorders $ myLayout,
+          handleEventHook    = myEventHook,
+          logHook            = myLogHook,
+          startupHook        = myStartupHook
     }
-

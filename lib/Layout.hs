@@ -2,7 +2,6 @@ module Layout where
 
 import XMonad
 import XMonad.Hooks.ManageDocks
-import Control.Monad
 
 ------------------------------------------------------------------------
 -- Layouts:
