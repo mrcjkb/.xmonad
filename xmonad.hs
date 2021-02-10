@@ -13,6 +13,7 @@ import Layout
 import WindowRules
 import StartupHook
 import LogHook
+import EventHandling
 
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal :: String
@@ -55,18 +56,6 @@ myNormalBorderColor :: String
 myNormalBorderColor  = "#3b4252"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#bc96da"
-
-
-------------------------------------------------------------------------
--- Event handling
-
--- * EwmhDesktops users should change this to ewmhDesktopsEventHook
---
--- Defines a custom handler function for X Events. The function should
--- return (All True) if the default handler is to be run afterwards. To
--- combine event hooks use mappend or mconcat from Data.Monoid.
---
-myEventHook = mempty
 
 
 ------------------------------------------------------------------------
