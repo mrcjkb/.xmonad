@@ -8,6 +8,8 @@ import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86 
 import XMonad.Layout.Gaps
 
+import Defaults
+
 -- Key bindings. Add, modify or remove key bindings here.
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -15,18 +17,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch nautilus
-    , ((modm .|. shiftMask, xK_n), spawn "nautilus")
-    -- launch brave
-    , ((modm .|. shiftMask, xK_b), spawn "brave-browser")
-
-    -- lock screen
-    , ((modm,               xK_F1    ), spawn "betterlockscreen -l")
+    , ((modm .|. shiftMask, xK_n), spawn myFileManager)
+    -- launch browser
+    , ((modm .|. shiftMask, xK_b), spawn myBrowser)
 
     -- launch rofi and dashboard
     , ((modm,               xK_o     ), spawn "rofi -show drun -theme vapor.rasi")
     , ((modm .|. shiftMask, xK_o     ), spawn "rofi -show run -theme vapor.rasi")
-    --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
     , ((modm .|. shiftMask, xK_p     ), spawn "exec ~/bin/ewwclose")
+    --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
 
     -- launch eww sidebar
     , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
@@ -34,7 +33,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
-    -- Audio keys
+    
+-- Audio keys
     , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")
     , ((0,                    xF86XK_AudioPrev), spawn "playerctl previous")
     , ((0,                    xF86XK_AudioNext), spawn "playerctl next")
@@ -61,16 +61,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- GAPS!!!
     , ((modm .|. controlMask, xK_g), sendMessage $ ToggleGaps)               -- toggle all gaps
-    , ((modm .|. shiftMask, xK_g), sendMessage $ setGaps [(L,0), (R,0), (U,30), (D,0)]) -- reset the GapSpec
     
-    , ((modm .|. controlMask, xK_t), sendMessage $ IncGap 10 L)              -- increment the left-hand gap
-    , ((modm .|. shiftMask, xK_t     ), sendMessage $ DecGap 10 L)           -- decrement the left-hand gap
-    
-    , ((modm .|. controlMask, xK_y), sendMessage $ IncGap 10 U)              -- increment the top gap
-    , ((modm .|. shiftMask, xK_y     ), sendMessage $ DecGap 10 U)           -- decrement the top gap
-    
-    , ((modm .|. controlMask, xK_i), sendMessage $ IncGap 10 R)              -- increment the right-hand gap
-    , ((modm .|. shiftMask, xK_i     ), sendMessage $ DecGap 10 R)           -- decrement the right-hand gap
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)

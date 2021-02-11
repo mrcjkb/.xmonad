@@ -42,3 +42,9 @@ myNormalBorderColor :: String
 myNormalBorderColor  = "#3b4252"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#bc96da"
+
+myBrowser :: String
+myBrowser = "brave-browser"
+
+myFileManager :: String
+myFileManager = "nautilus"
