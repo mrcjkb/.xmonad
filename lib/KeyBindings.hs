@@ -7,6 +7,8 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86 
 import XMonad.Layout.Gaps
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 
 import Defaults
 
@@ -34,6 +36,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     
+    -- Toggle fullscreen layout
+    , ((modm,               xK_f     ), sendMessage $ Toggle FULL)    
 -- Audio keys
     , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")
     , ((0,                    xF86XK_AudioPrev), spawn "playerctl previous")

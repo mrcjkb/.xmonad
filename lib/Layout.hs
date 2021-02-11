@@ -6,6 +6,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Layout.LayoutModifier
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -21,7 +23,9 @@ import XMonad.Layout.LayoutModifier
 
 myLayoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True $ smartBorders $ myLayout
 
-myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
+myLayout = smartBorders
+  $ mkToggle (NOBORDERS ?? FULL ?? EOT)
+  $ avoidStruts(tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
