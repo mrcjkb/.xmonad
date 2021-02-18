@@ -64,6 +64,7 @@ help = unlines ["The default modifier key is 'super'. Default keybindings:",
     "mod-Shift-p  Launch Polysun",
     "mod-Shift-i  Launch IntelliJ IDEA",
     "mod-Alt-b    Launch Bluetooth Manager",
-    "mod-Alt-v    Launch PulseAudio Volume Control"]
+    "mod-Alt-v    Launch PulseAudio Volume Control",
+    "mod-Shift-k  Launch Keepass"]
 
 
