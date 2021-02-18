@@ -58,6 +58,12 @@ help = unlines ["The default modifier key is 'super'. Default keybindings:",
     "-- Mouse bindings: default actions bound to mouse events",
     "mod-button1  Set the window to floating mode and move by dragging",
     "mod-button2  Raise the window to the top of the stack",
-    "mod-button3  Set the window to floating mode and resize by dragging"]
+    "mod-button3  Set the window to floating mode and resize by dragging",
+    "",
+    "-- Launch applications",
+    "mod-Shift-p  Launch Polysun",
+    "mod-Shift-i  Launch IntelliJ IDEA",
+    "mod-Alt-b    Launch Bluetooth Manager",
+    "mod-Alt-v    Launch PulseAudio Volume Control"]
 
 
