@@ -3,6 +3,7 @@ module StartupHook(myStartupHook) where
 import XMonad
 import XMonad.Util.SpawnOnce
 import XMonad.Core
+import XMonad.Hooks.SetWMName
 
 import Data.Maybe
 import Control.Monad
@@ -25,6 +26,7 @@ myStartupHook = do
   spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
+  setWMName "LG3D"
   >>
   addEWMHFullscreen
 
