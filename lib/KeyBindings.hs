@@ -26,7 +26,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch rofi and dashboard
     , ((modm,               xK_o     ), spawn "rofi -show drun -theme vapor.rasi")
     , ((modm .|. shiftMask, xK_o     ), spawn "rofi -show run -theme vapor.rasi")
-    , ((modm .|. shiftMask, xK_p     ), spawn "exec ~/bin/ewwclose")
     --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
 
     -- launch eww sidebar
@@ -126,7 +125,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_h ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+    
+
     ]
+
+    ++
+ 
+    -- Applications --
+    [  
+      ((modm .|. shiftMask, xK_p     ), spawn "Polysun")
+    , ((modm .|. shiftMask, xK_i     ), spawn "idea")
+    , ((modm .|. mod1Mask,  xK_b     ), spawn "blueman-manager")  
+    , ((modm .|. mod1Mask,  xK_v     ), spawn "pavucontrol")
+    , ((modm .|. shiftMask, xK_k     ), spawn "keepass2")
+    ]
+
+
     ++
 
     --
