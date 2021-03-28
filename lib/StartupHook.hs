@@ -2,22 +2,24 @@ module StartupHook(myStartupHook) where
 
 import XMonad
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Run
 import XMonad.Core
 import XMonad.Hooks.SetWMName
 
 import Data.Maybe
 import Control.Monad
+import System.Environment
 
 ------------------------------------------------------------------------
--- Startup hook
+-- | Startup hook
 
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
+-- | Perform an arbitrary action each time xmonad starts or is restarted
+-- | with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
+-- | per-workspace layout choices.
 --
--- By default, do nothing.
+-- | By default, do nothing.
 myStartupHook :: X ()
-myStartupHook = do
+myStartupHook = registerGnomeSession >> do
   -- spawnOnce "exec ~/bin/bartoggle"
   spawnOnce "exec ~/bin/eww daemon"
   spawn "xsetroot -cursor_name left_ptr"
@@ -45,3 +47,16 @@ addEWMHFullscreen   = do
     wms <- getAtom "_NET_WM_STATE"
     wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
     mapM_ addNETSupported [wms, wfs]
+
+-- | Registers a gnome session 
+registerGnomeSession :: MonadIO m => m()
+registerGnomeSession = io $ do
+  x <- lookup "DESKTOP_AUTOSTART_ID" `fmap` getEnvironment
+  whenJust x $ \sessionId -> safeSpawn "dbus-send"
+            ["--session"
+            ,"--print-reply=literal"
+            ,"--dest=org.gnome.SessionManager"
+            ,"/org/gnome/SessionManager"
+            ,"org.gnome.SessionManager.RegisterClient"
+            ,"string:xmonad"
+            ,"string:"++sessionId]
