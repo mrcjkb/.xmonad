@@ -137,7 +137,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_i     ), spawn "idea")
     , ((modm .|. mod1Mask,  xK_b     ), spawn "blueman-manager")  
     , ((modm .|. mod1Mask,  xK_v     ), spawn "pavucontrol")
-    , ((modm .|. shiftMask, xK_k     ), spawn "keepass2")
+    , ((modm .|. shiftMask, xK_k     ), spawn "keepassxc")
     ]
 
 
