@@ -41,8 +41,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")
     , ((0,                    xF86XK_AudioPrev), spawn "playerctl previous")
     , ((0,                    xF86XK_AudioNext), spawn "playerctl next")
-    , ((0,                    xF86XK_AudioRaiseVolume), spawn "pactl-set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((0,                    xF86XK_AudioLowerVolume), spawn "pactl-set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((0,                    xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((0,                    xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((0,                    xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
 
     -- Brightness keys
