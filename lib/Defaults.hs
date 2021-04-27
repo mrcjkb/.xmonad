@@ -47,4 +47,4 @@ myBrowser :: String
 myBrowser = "brave-browser"
 
 myFileManager :: String
-myFileManager = "nautilus"
+myFileManager = "pcmanfm"
