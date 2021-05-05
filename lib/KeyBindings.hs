@@ -32,6 +32,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
     , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
     
+    , ((modm .|. mod1Mask, xK_x     ), spawn "xkill")
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     
