@@ -47,4 +47,4 @@ myBrowser :: String
 myBrowser = "brave-browser"
 
 myFileManager :: String
-myFileManager = "pcmanfm"
+myFileManager = "alacritty -e ranger"
