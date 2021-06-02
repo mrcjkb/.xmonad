@@ -121,6 +121,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), spawn "rofi  -show fb -modi fb:~/.config/rofi/scripts/power.sh -theme vapor.rasi")
+    , ((modm .|. shiftMask, xK_l     ), spawn "slock")
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
