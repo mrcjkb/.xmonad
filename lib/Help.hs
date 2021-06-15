@@ -49,12 +49,6 @@ help = unlines ["The default modifier key is 'super'. Default keybindings:",
     "",
     "-- quit, or restart",
     "mod-Shift-q  Launch power menu",
-        For(maybeSelectedColumnDefinition,
-            onPolysunProfileColumnDefinitionSelected)
-            .yield((selectedProfileColumnDefinition, handler) -> {
-                handler(selectedProfileColumnDefinition);
-                return null;
-            });
     "mod-Shift-l  Lock screen",
     "mod-q        Restart xmonad",
     "mod-[1..9]   Switch to workSpace N",
