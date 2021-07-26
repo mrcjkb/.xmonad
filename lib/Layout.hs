@@ -2,6 +2,7 @@ module Layout where
 
 import XMonad
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.ThreeColumns
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
@@ -25,7 +26,13 @@ myLayoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0
 
 myLayout = smartBorders
   $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-  $ avoidStruts(tiled ||| Mirror tiled ||| Full)
+  $ avoidStruts(tiled 
+      ||| Mirror tiled 
+      ||| Full
+      -- large master window in the center. Windows tile to the left and right
+      -- (for ultra wide displays)
+      ||| ThreeColMid 1 (3/100) (3/7)
+    )
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
