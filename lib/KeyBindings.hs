@@ -63,6 +63,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
     , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
     , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
+    , ((modm, xK_v                   ), pasteSelection)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
