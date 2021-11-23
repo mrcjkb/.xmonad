@@ -9,6 +9,7 @@ import Graphics.X11.ExtraTypes.XF86
 import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Util.Paste
 
 import Defaults
 
@@ -29,8 +30,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
 
     -- launch eww sidebar
-    , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
-    , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
+    -- , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
+    -- , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
     
     , ((modm .|. mod1Mask, xK_x     ), spawn "xkill")
     , ((modm .|. mod1Mask, xK_k     ), spawn "inkview $HOME/git/keyboardio-atreus-firmware/atreus-layout-card.svg")
@@ -56,7 +57,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_Print), spawn "~/bin/maimsave")
 
     -- My Stuff
-    , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
+    -- , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
+    , ((modm, xK_b                   ), spawn "xmobar")
+    , ((modm .|. shiftMask, xK_b     ), spawn "killall xmobar")
     , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
     , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
     , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
