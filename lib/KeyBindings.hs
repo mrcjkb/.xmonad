@@ -57,9 +57,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_Print), spawn "~/bin/maimsave")
 
     -- My Stuff
-    -- , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
-    , ((modm, xK_b                   ), spawn "xmobar")
-    , ((modm .|. shiftMask, xK_b     ), spawn "killall xmobar")
+    , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
     , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
     , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
     , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
