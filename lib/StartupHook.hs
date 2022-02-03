@@ -25,7 +25,7 @@ myStartupHook = registerGnomeSession >> do
   spawn "xsetroot -cursor_name left_ptr"
   spawn "exec ~/bin/lock.sh"
   spawn "xmobar"
-  spawnOnce "feh --bg-scale ~/wallpapers/yosemite-lowpoly.jpg"
+  spawnOnce "pscircle --output=$HOME/pscircle.png && feh --bg-scale $HOME/pscircle.png"
   spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
