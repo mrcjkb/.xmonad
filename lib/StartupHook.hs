@@ -29,6 +29,7 @@ myStartupHook = registerGnomeSession >> do
   spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
+  spawnOnce "keepassxc"
   setWMName "LG3D"
   >>
   addEWMHFullscreen
