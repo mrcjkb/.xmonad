@@ -21,9 +21,9 @@ import System.Environment
 myStartupHook :: X ()
 myStartupHook = registerGnomeSession >> do
   -- spawnOnce "exec ~/bin/bartoggle"
-  spawnOnce "exec ~/bin/eww daemon"
+  -- spawnOnce "exec ~/bin/eww daemon"
+  -- spawn "exec ~/bin/lock.sh"
   spawn "xsetroot -cursor_name left_ptr"
-  spawn "exec ~/bin/lock.sh"
   spawn "xmobar"
   spawn "pscircle --output=$HOME/pscircle.png && feh --bg-scale $HOME/pscircle.png"
   spawnOnce "picom -f"
