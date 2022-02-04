@@ -66,6 +66,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
 
+    -- greenclip - clipboard history
+    , ((modm, xK_c                   ), spawn "rofi -theme vapor.rasi -modi \"clipboard:greenclip print\" -show")
+
     -- GAPS!!!
     , ((modm .|. controlMask, xK_g), sendMessage $ ToggleGaps)               -- toggle all gaps
     
@@ -129,7 +132,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
-    , ((modm .|. shiftMask, xK_h ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+    , ((modm .|. shiftMask, xK_h ), spawn ("echo \"" ++ help ++ "\" | gxmessage -file -"))
     
 
     ]
