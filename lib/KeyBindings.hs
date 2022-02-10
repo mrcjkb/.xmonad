@@ -53,8 +53,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,                    xF86XK_MonBrightnessDown), spawn "brightnessctl s 10-%")
  
     -- Screenshot
-    , ((0,                    xK_Print), spawn "~/bin/maimcopy")
-    , ((modm,                 xK_Print), spawn "~/bin/maimsave")
+    , ((0,                    xK_Print), spawn "sleep 0.5 && scrot -s")
+    , ((modm,                 xK_Print), spawn "sleep 0.5 && scrot")
 
     -- My Stuff
     , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
