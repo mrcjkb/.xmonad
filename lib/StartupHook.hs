@@ -20,12 +20,10 @@ import System.Environment
 -- | By default, do nothing.
 myStartupHook :: X ()
 myStartupHook = registerGnomeSession >> do
-  -- spawnOnce "exec ~/bin/bartoggle"
-  -- spawnOnce "exec ~/bin/eww daemon"
-  -- spawn "exec ~/bin/lock.sh"
   spawn "xsetroot -cursor_name left_ptr"
-  spawn "xmobar"
   spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
+  spawn "autorandr -c"
+  spawn "xmobar"
   spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
