@@ -28,6 +28,7 @@ myStartupHook = registerGnomeSession >> do
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
   spawnOnce "keepassxc"
+  spawnOnce "bat cache --build"
   setWMName "LG3D"
   >>
   addEWMHFullscreen
