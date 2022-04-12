@@ -34,7 +34,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
     
     , ((modm .|. mod1Mask, xK_x     ), spawn "xkill")
-    , ((modm .|. mod1Mask, xK_k     ), spawn "inkview $HOME/git/github/mrcjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
+    , ((modm .|. mod1Mask, xK_k     ), spawn "inkview $HOME/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     
