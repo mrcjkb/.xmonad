@@ -28,7 +28,7 @@ myStartupHook = registerGnomeSession >> do
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
   spawnOnce "keepassxc"
-  spawnOnce "yubiauth-desktop"
+  spawnOnce "yubioath-desktop"
   spawnOnce "while !\"$(secret-tool lookup Title \"Nextcloud\" &> /dev/null); do sleep 1s; done && nextcloud" -- Wait for keepassxc
   spawnOnce "bat cache --build"
   setWMName "LG3D"
