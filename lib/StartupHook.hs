@@ -30,7 +30,6 @@ myStartupHook = registerGnomeSession >> do
   spawnOnce "keepassxc"
   spawnOnce "yubioath-desktop"
   spawnOnce "nextcloud-wrapper" -- Waits for keepassxc
-  spawnOnce "alacritty"
   spawnOnce "bat cache --build"
   setWMName "LG3D"
   >>
