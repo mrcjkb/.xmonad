@@ -27,9 +27,9 @@ myStartupHook = registerGnomeSession >> do
   spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
-  spawnOnce "keepassxc"
   spawnOnce "yubioath-desktop"
   spawnOnce "nextcloud-wrapper" -- Waits for keepassxc
+  spawnOnce "keepassxc"
   spawnOnce "bat cache --build"
   setWMName "LG3D"
   >>
