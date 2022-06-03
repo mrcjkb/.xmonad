@@ -59,9 +59,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- My Stuff
     , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
-    , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
-    , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
-    , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
+    -- , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
+    -- , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
+    -- , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
     , ((modm, xK_v                   ), pasteSelection)
 
     -- close focused window
@@ -141,12 +141,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
  
     -- Applications --
-    [  
-      ((modm .|. shiftMask, xK_p     ), spawn "Polysun")
-    , ((modm .|. shiftMask, xK_i     ), spawn "idea")
-    , ((modm .|. mod1Mask,  xK_b     ), spawn "blueman-manager")  
+    [ ((modm .|. mod1Mask,  xK_b     ), spawn "blueman-manager")  
+    -- , ((modm .|. shiftMask, xK_p     ), spawn "Polysun")
     , ((modm .|. mod1Mask,  xK_v     ), spawn "pavucontrol")
+    , ((modm .|. shiftMask, xK_i     ), spawn "inkscape")
     , ((modm .|. shiftMask, xK_k     ), spawn "keepassxc")
+    , ((modm .|. shiftMask, xK_y     ), spawn "yubioath-desktop")
+    , ((modm .|. mod1Mask, xK_l     ), spawn "lens")
     ]
 
 
