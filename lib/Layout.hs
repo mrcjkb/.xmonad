@@ -1,4 +1,4 @@
-module Layout where
+module Layout (myLayoutHook) where
 
 import XMonad
 import XMonad.Hooks.ManageDocks
@@ -9,6 +9,7 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.Reflect
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -22,11 +23,13 @@ import XMonad.Layout.MultiToggle.Instances
 -- which denotes layout choice.
 --
 
-myLayoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True $ smartBorders $ myLayout
+myLayoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] 
+  $ spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True 
+  $ smartBorders myLayout
 
 myLayout = smartBorders
   $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-  $ avoidStruts(tiled 
+  $ avoidStruts(reflectHoriz tiled 
       ||| Mirror tiled 
       ||| Full
       -- large master window in the center. Windows tile to the left and right
