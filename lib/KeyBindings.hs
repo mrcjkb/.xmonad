@@ -71,7 +71,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_c                   ), spawn "rofi -theme vapor.rasi -modi \"clipboard:greenclip print\" -show")
 
     -- GAPS!!!
-    , ((modm .|. controlMask, xK_g), sendMessage $ ToggleGaps)               -- toggle all gaps
+    , ((modm .|. controlMask, xK_g), sendMessage ToggleGaps)               -- toggle all gaps
     
 
      -- Rotate through the available layout algorithms
