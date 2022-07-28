@@ -24,7 +24,6 @@ myStartupHook = registerGnomeSession >> do
   spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
   spawn "autorandr -c"
   spawn "xmobar"
-  spawnOnce "picom -f"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
   spawnOnce "yubioath-desktop"
@@ -41,7 +40,7 @@ addNETSupported x   = withDisplay $ \dpy -> do
     a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
     a               <- getAtom "ATOM"
     liftIO $ do
-       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
+       sup <- join . maybeToList <$> getWindowProperty32 dpy a_NET_SUPPORTED r
        when (fromIntegral x `notElem` sup) $
          changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
 
