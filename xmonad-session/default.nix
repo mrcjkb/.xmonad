@@ -1,8 +1,8 @@
 { pkgs, defaultUser, ...}: 
 {
   
-  home-manager.users."${defaultUser}".".xmonad" = {
-    source = ./.;
+  home-manager.users."${defaultUser}".home.file.".xmonad" = {
+    source = ../.;
     recursive = true;
   };
 
