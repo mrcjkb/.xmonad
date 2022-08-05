@@ -59,10 +59,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
 
     -- My Stuff
-    , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
-    -- , ((modm,               xK_z     ), spawn "exec ~/bin/inhibit_activate")
-    -- , ((modm .|. shiftMask, xK_z     ), spawn "exec ~/bin/inhibit_deactivate")
-    -- , ((modm .|. shiftMask, xK_a     ), spawn "exec ~/bin/clipboardy")
+    -- , ((modm,               xK_b     ), spawn "exec ~/bin/bartoggle")
     , ((modm, xK_v                   ), pasteSelection)
 
     -- close focused window
