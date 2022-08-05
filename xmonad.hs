@@ -2,7 +2,6 @@ import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
-import XMonad.Config
 
 -- Modules in ~/.xmonad/lib directory
 import KeyBindings
@@ -16,23 +15,21 @@ import Defaults
 
 main :: IO ()
 main = xmonad $ fullscreenSupport $ docks $ ewmh defaults
- where defaults = defaultConfig {
-          -- simple stuff
-          terminal           = myTerminal,
-          focusFollowsMouse  = myFocusFollowsMouse,
-          clickJustFocuses   = myClickJustFocuses,
-          borderWidth        = myBorderWidth,
-          modMask            = myModMask,
-          workspaces         = myWorkspaces,
-          normalBorderColor  = myNormalBorderColor,
-          focusedBorderColor = myFocusedBorderColor,
-          -- key bindings
-          keys               = myKeys,
-          mouseBindings      = myMouseBindings,
-          -- hooks, layouts
-          manageHook = myManageHook, 
-          layoutHook = myLayoutHook, 
-          handleEventHook    = myEventHook,
-          logHook            = myLogHook,
-          startupHook        = myStartupHook
+ where 
+  defaults = def 
+    { terminal           = myTerminal
+    , focusFollowsMouse  = myFocusFollowsMouse
+    , clickJustFocuses   = myClickJustFocuses
+    , borderWidth        = myBorderWidth
+    , modMask            = myModMask
+    , workspaces         = myWorkspaces
+    , normalBorderColor  = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
+    , keys               = myKeys
+    , mouseBindings      = myMouseBindings
+    , manageHook         = myManageHook
+    , layoutHook         = myLayoutHook 
+    , handleEventHook    = myEventHook
+    , logHook            = myLogHook
+    , startupHook        = myStartupHook
     }
