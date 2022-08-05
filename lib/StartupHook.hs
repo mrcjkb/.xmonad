@@ -19,7 +19,7 @@ import System.Environment
 --
 -- | By default, do nothing.
 myStartupHook :: X ()
-myStartupHook = registerGnomeSession >> do
+myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr"
   spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
   spawn "autorandr -c"
@@ -50,15 +50,3 @@ addEWMHFullscreen   = do
     wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
     mapM_ addNETSupported [wms, wfs]
 
--- | Registers a gnome session 
-registerGnomeSession :: MonadIO m => m()
-registerGnomeSession = io $ do
-  x <- lookup "DESKTOP_AUTOSTART_ID" `fmap` getEnvironment
-  whenJust x $ \sessionId -> safeSpawn "dbus-send"
-            ["--session"
-            ,"--print-reply=literal"
-            ,"--dest=org.gnome.SessionManager"
-            ,"/org/gnome/SessionManager"
-            ,"org.gnome.SessionManager.RegisterClient"
-            ,"string:xmonad"
-            ,"string:"++sessionId]
