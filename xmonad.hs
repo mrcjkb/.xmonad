@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
-import XMonad.Config.Gnome
+import XMonad.Config
 
 -- Modules in ~/.xmonad/lib directory
 import KeyBindings
@@ -16,7 +16,7 @@ import Defaults
 
 main :: IO ()
 main = xmonad $ fullscreenSupport $ docks $ ewmh defaults
- where defaults = gnomeConfig {
+ where defaults = defaultConfig {
           -- simple stuff
           terminal           = myTerminal,
           focusFollowsMouse  = myFocusFollowsMouse,
