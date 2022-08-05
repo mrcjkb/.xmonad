@@ -1,3 +1,5 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Defaults where
 
 import XMonad
@@ -35,7 +37,7 @@ myModMask = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces :: [String]
-myWorkspaces = map show [1..9]
+myWorkspaces = map show ([1..9] :: [Integer])
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor :: String

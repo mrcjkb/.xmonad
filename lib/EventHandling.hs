@@ -1,7 +1,6 @@
 module EventHandling where
 
 import XMonad
-import XMonad.Core
 
 import Data.Monoid
 

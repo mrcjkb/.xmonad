@@ -20,6 +20,7 @@ import XMonad.Hooks.ManageDocks
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
+myManageHook :: ManageHook
 myManageHook = fullscreenManageHook <+> manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doFloat
    --, className =? "Gimp"           --> doFloat

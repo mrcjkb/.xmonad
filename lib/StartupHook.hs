@@ -2,13 +2,10 @@ module StartupHook(myStartupHook) where
 
 import XMonad
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
-import XMonad.Core
 import XMonad.Hooks.SetWMName
 
 import Data.Maybe
 import Control.Monad
-import System.Environment
 
 ------------------------------------------------------------------------
 -- | Startup hook

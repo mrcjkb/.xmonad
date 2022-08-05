@@ -1,7 +1,6 @@
 module WindowState(toggleFloat) where
 
 import XMonad
-import Data.Maybe
 import qualified Data.Map as Map
 import qualified XMonad.StackSet as W
 
