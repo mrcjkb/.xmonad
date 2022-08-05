@@ -1,9 +1,11 @@
 { pkgs, defaultUser, ...}: 
 {
   
-  home-manager.users."${defaultUser}".home.file.".xmonad" = {
-    source = ../.;
-    recursive = true;
+  home-manager.users."${defaultUser}" = {
+    xdg.configFile."xmonad" = {
+      source = ../.;
+      recursive = true;
+    };
   };
 
   services = {
