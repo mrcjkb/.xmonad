@@ -15,7 +15,7 @@ import XMonad.Hooks.StatusBar.PP
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.StatusBar' extension for examples.
 --
--- TODO: Add xmobarrc here
+-- TODO: Build custom xmobar executable with nixpkgs overlay
 
 myLogHook :: X ()
 myLogHook = return ()
