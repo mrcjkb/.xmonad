@@ -12,7 +12,7 @@
     haskellNix.overlay
     (final: prev: {
       xmonadrc = final.haskell-nix.cabalProject' {
-        src = ./.;
+        src = builtins.path { path = ./.; name = "xmonadrc"; };
         compiler-nix-name = "ghc8107";
         # This is used by `nix develop .` to open a shell for use with
         # `cabal`, `hlint` and `haskell-language-server`
@@ -32,12 +32,30 @@
           # '';
         };
       };
+      xmobar-app = final.haskell-nix.cabalProject' {
+        src = builtins.path { path = ./xmonad-session/xmobar; name = "xmobar-app"; };
+        compiler-nix-name = "ghc8107";
+        # This is used by `nix develop .` to open a shell for use with
+        # `cabal`, `hlint` and `haskell-language-server`
+        shell = {
+          tools = {
+            cabal = "latest";
+            hlint = "latest";
+            haskell-language-server = "latest";
+          };
+          withHoogle = true;
+        };
+      };
     })
   ];
   pkgs = import nixpkgs { system = "x86_64-linux"; inherit overlays; inherit (haskellNix) config; };
   xmonadrc-flake = pkgs.xmonadrc.flake {};
+  xmobar-app-flake = pkgs.xmobar-app.flake {};
+  xmonadrc-package = xmonadrc-flake.packages."xmonadrc:exe:xmonadrc";
+  xmobar-package = xmobar-app-flake.packages."xmobar-app:exe:xmobar-app";
   in xmonadrc-flake // {
-    nixosModule = import ./xmonad-session;
-    defaultPackage.x86_64-linux = xmonadrc-flake.packages."xmonadrc:exe:xmonadrc";
+    nixosModule = import ./xmonad-session xmobar-package;
+    defaultPackage.x86_64-linux = xmonadrc-package;
+    inherit xmonadrc-package xmobar-package;
   };
 }

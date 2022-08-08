@@ -21,5 +21,5 @@ myLogHook :: X ()
 myLogHook = return ()
 
 withStatusBar :: LayoutClass l Window => XConfig l -> XConfig l
-withStatusBar = withSB $ statusBarProp "xmobar" (pure xmobarPP)
+withStatusBar = withSB $ statusBarProp "xmobar-app" (pure xmobarPP)
 

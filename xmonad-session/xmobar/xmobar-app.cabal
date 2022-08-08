@@ -1,0 +1,33 @@
+name:          xmobar-app
+version:       1.0
+synopsis:      My Modified xmobar app
+author:        Marc Jakobi <mrcjkb89@outlook.com>
+maintainer:    Marc Jakobi <mrcjkb89@outlook.com>
+category:      Graphics
+build-type:    Simple
+cabal-version: >=1.8
+    
+package xmobar
+    flags: 
+      +with_alsa +with_conduit +with_datezone +with_dbus
+      +with_inotify +with_iwlib +with_mpd +with_mpris
+      +with_rtsopts +with_threaded +with_utf8 +with_uvmeter
+      +with_weather +with_xft +with_xpm
+
+library xmobar-lib
+  exposed-modules:
+    Config
+  hs-source-dirs: lib
+  ghc-options: -Wall -Werror 
+  build-depends: base
+    , xmobar
+  default-language: Haskell2010
+
+executable xmobar-app
+  main-is: Main.hs
+  hs-source-dirs: app
+  ghc-options: -Wall -Werror 
+  build-depends: base
+    , xmobar
+    , xmobar-lib
+  default-language: Haskell2010

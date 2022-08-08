@@ -1,4 +1,4 @@
-{ pkgs, defaultUser, ...}: 
+xmobar-app: { pkgs, defaultUser, ...}: 
 {
   
   home-manager.users."${defaultUser}" = {
@@ -62,7 +62,7 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      xmobar
+      xmobar-app
       rofi
       ranger # TUI file browser
       alacritty
