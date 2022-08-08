@@ -29,11 +29,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_o     ), spawn "source ~/.profile && rofi -show drun -theme vapor.rasi")
     , ((modm .|. shiftMask, xK_o     ), spawn "source ~/.profile && rofi -show run -theme vapor.rasi")
     , ((modm .|. mod1Mask, xK_o      ), spawn "alacritty -e yubikee-smartvpn officeVPN")
-    --, ((modm,               xK_p     ), spawn "~/bin/centerlaunch")
-
-    -- launch eww sidebar
-    -- , ((modm,               xK_s     ), spawn "~/bin/sidebarlaunch")
-    -- , ((modm .|. shiftMask, xK_s     ), spawn "exec ~/bin/ewwclose")
     
     , ((modm .|. mod1Mask, xK_x     ), spawn "xkill")
     , ((modm .|. mod1Mask, xK_k     ), spawn "inkview $HOME/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
@@ -59,7 +54,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
 
     -- My Stuff
-    , ((modm,               xK_b     ), spawn "killall xmobar")
+    , ((modm,               xK_b     ), spawn "killall xmobar-app")
     , ((modm, xK_v                   ), pasteSelection)
 
     -- close focused window
@@ -140,12 +135,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- Applications --
     [ ((modm .|. mod1Mask,  xK_b     ), spawn "blueman-manager")  
-    -- , ((modm .|. shiftMask, xK_p     ), spawn "Polysun")
     , ((modm .|. mod1Mask,  xK_v     ), spawn "pavucontrol")
     , ((modm .|. shiftMask, xK_i     ), spawn "inkscape")
     , ((modm .|. shiftMask, xK_k     ), spawn "keepassxc")
     , ((modm .|. shiftMask, xK_y     ), spawn "yubioath-desktop")
-    , ((modm .|. mod1Mask, xK_l     ), spawn "lens")
     ]
 
 
