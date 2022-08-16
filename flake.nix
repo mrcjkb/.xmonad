@@ -23,10 +23,10 @@
             haskell-language-server = "latest";
           };
           withHoogle = true;
-          # FIXME: This seems to be broken in haskell.nix
-          # buildInputs = with pkgs.haskellPackages; [
-          #   implicit-hie
-          # ];
+          packages = with pkgs.haskellPackages; [
+            implicit-hie
+          ];
+          # FIXME
           # shellHook = ''
           #   gen-hie --cabal hie.yaml
           # '';
