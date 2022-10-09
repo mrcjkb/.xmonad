@@ -1,6 +1,6 @@
 # My XMonad config.
 
-See also the corresponding [nix configuration](https://github.com/MrcJkb/nixfiles/blob/master/flake.nix).
+See also the corresponding [NixOS flake](https://github.com/MrcJkb/nixfiles/blob/master/flake.nix).
 
 ## To enter a development shell (with haskell-language-server)
 
