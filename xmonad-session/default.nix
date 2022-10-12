@@ -56,6 +56,11 @@ xmobar-app: { pkgs, defaultUser, ...}:
     };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
   };
   programs = {
     slock.enable = true;
@@ -73,7 +78,8 @@ xmobar-app: { pkgs, defaultUser, ...}:
       haskellPackages.greenclip # Clipboard manager for use with rofi
       dunst
       bat
-      pavucontrol # PulseAudio volume control
+      pavucontrol # PulseAudio volume control UI
+      pulseaudio
       brightnessctl # Brightness control CLI
       scrot # A command-line screen capture utility
       #### NUR packages ###
