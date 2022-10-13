@@ -23,37 +23,37 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch nautilus
     , ((modm .|. shiftMask, xK_n), spawn myFileManager)
     -- launch neovide
-    , ((modm,               xK_e), spawn "neovide")
+    , ((modm .|. mod1Mask,  xK_n), spawn "neovide")
     -- launch browser
     , ((modm .|. shiftMask, xK_b), spawn myBrowser)
 
     -- launch rofi and dashboard
     , ((modm,               xK_o     ), spawn "source ~/.profile && rofi -show drun -theme vapor.rasi")
     , ((modm .|. shiftMask, xK_o     ), spawn "source ~/.profile && rofi -show run -theme vapor.rasi")
-    , ((modm .|. mod1Mask, xK_o      ), spawn "alacritty -e yubikee-smartvpn officeVPN")
+    , ((modm .|. mod1Mask,  xK_o      ), spawn "alacritty -e yubikee-smartvpn officeVPN")
     
-    , ((modm .|. mod1Mask, xK_x     ), spawn "xkill")
-    , ((modm .|. mod1Mask, xK_k     ), spawn "inkview $HOME/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
+    , ((modm .|. mod1Mask,  xK_x     ), spawn "xkill")
+    , ((modm .|. mod1Mask,  xK_k     ), spawn "inkview $HOME/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     
     -- Toggle fullscreen layout
     , ((modm,               xK_f     ), sendMessage $ Toggle FULL)    
 -- Audio keys
-    , ((0,                    xF86XK_AudioPlay), spawn "playerctl play-pause")
-    , ((0,                    xF86XK_AudioPrev), spawn "playerctl previous")
-    , ((0,                    xF86XK_AudioNext), spawn "playerctl next")
-    , ((0,                    xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((0,                    xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((0,                    xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ((0,                  xF86XK_AudioPlay), spawn "playerctl play-pause")
+    , ((0,                  xF86XK_AudioPrev), spawn "playerctl previous")
+    , ((0,                  xF86XK_AudioNext), spawn "playerctl next")
+    , ((0,                  xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((0,                  xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((0,                  xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
 
     -- Brightness keys
-    , ((0,                    xF86XK_MonBrightnessUp), spawn "brightnessctl s +10%")
-    , ((0,                    xF86XK_MonBrightnessDown), spawn "brightnessctl s 10-%")
+    , ((0,                  xF86XK_MonBrightnessUp), spawn "brightnessctl s +10%")
+    , ((0,                  xF86XK_MonBrightnessDown), spawn "brightnessctl s 10-%")
  
     -- Screenshot
-    , ((0,                    xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'")
-    , ((modm,                 xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
+    , ((0,                  xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'")
+    , ((modm,               xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
 
     -- My Stuff
     , ((modm,               xK_b     ), spawn "killall xmobar-app")
