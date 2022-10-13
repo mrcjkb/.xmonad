@@ -22,6 +22,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch nautilus
     , ((modm .|. shiftMask, xK_n), spawn myFileManager)
+    -- launch neovide
+    , ((modm,               xK_n), spawn "neovide")
     -- launch browser
     , ((modm .|. shiftMask, xK_b), spawn myBrowser)
 
