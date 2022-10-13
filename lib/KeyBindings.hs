@@ -23,7 +23,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch nautilus
     , ((modm .|. shiftMask, xK_n), spawn myFileManager)
     -- launch neovide
-    , ((modm,               xK_n), spawn "neovide")
+    , ((modm,               xK_e), spawn "neovide")
     -- launch browser
     , ((modm .|. shiftMask, xK_b), spawn myBrowser)
 
