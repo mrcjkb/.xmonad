@@ -50,6 +50,8 @@ myConfig = defaultConfig
         -- XMonad logs
         , Run $ XMonadLog
 
+        , Run $ Volume "default" "Master" [] 10
+
         -- network activity monitor (dynamic interface resolution)
         , Run $ DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                                , "--Low"      , "1000"       -- units: B/s
