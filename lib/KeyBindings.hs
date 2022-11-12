@@ -28,8 +28,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_b), spawn myBrowser)
 
     -- launch rofi and dashboard
-    , ((modm,               xK_o     ), spawn "source ~/.profile && rofi -show drun -theme vapor.rasi")
-    , ((modm .|. shiftMask, xK_o     ), spawn "source ~/.profile && rofi -show run -theme vapor.rasi")
+    , ((modm,               xK_o     ), spawn "rofi -show drun -theme vapor.rasi")
+    , ((modm .|. shiftMask, xK_o     ), spawn "rofi -show run -theme vapor.rasi")
     , ((modm .|. mod1Mask,  xK_o      ), spawn "alacritty -e yubikee-smartvpn officeVPN")
     
     , ((modm .|. mod1Mask,  xK_x     ), spawn "xkill")
