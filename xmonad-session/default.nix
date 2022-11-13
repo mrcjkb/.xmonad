@@ -12,12 +12,6 @@ xmobar-app: { pkgs, defaultUser, ...}:
     xserver = { 
       # Enable the X11 windowing system.
       enable = true;
-      # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "altgr-intl";
-      # xkbOptions = "eurosign:e";
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
       displayManager = {
         lightdm = {
           enable = true;
