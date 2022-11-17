@@ -6,6 +6,11 @@ xmobar-app: { pkgs, defaultUser, ...}:
       source = ../.;
       recursive = true;
     };
+    xdg.configFile."rofi" = {
+      source = ./configs/rofi/.;
+      recursive = true;
+    };
+
   };
 
   services = {
