@@ -33,7 +33,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. mod1Mask,  xK_o      ), spawn "kitty -e yubikee-smartvpn officeVPN")
     
     , ((modm .|. mod1Mask,  xK_x     ), spawn "xkill")
-    , ((modm .|. mod1Mask,  xK_k     ), spawn "inkview $HOME/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
+    , ((modm .|. mod1Mask,  xK_k     ), spawn "inkview /home/mrcjk/git/github/mrkjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
     -- Toggle floating window
     , ((modm .|. shiftMask, xK_f     ), withFocused WS.toggleFloat)
     
