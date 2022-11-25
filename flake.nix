@@ -54,7 +54,7 @@
   xmonadrc-package = xmonadrc-flake.packages."xmonadrc:exe:xmonadrc";
   xmobar-package = xmobar-app-flake.packages."xmobar-app:exe:xmobar-app";
   in xmonadrc-flake // {
-    nixosModule = import ./xmonad-session xmobar-package;
+    nixosModule = import ./xmonad-session;
     defaultPackage.x86_64-linux = xmonadrc-package;
     inherit xmonadrc-package xmobar-package;
   };
