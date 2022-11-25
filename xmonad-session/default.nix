@@ -66,7 +66,7 @@ xmobar-app: { pkgs, defaultUser, ...}:
   };
   environment = {
     systemPackages = with pkgs; [
-      xmobar-app
+      # xmobar-app
       rofi
       ranger # TUI file browser
       alacritty
