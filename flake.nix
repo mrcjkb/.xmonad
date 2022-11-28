@@ -8,7 +8,7 @@
 
   outputs = {self, nixpkgs, haskellNix, ...}:
   let
-  compiler-nix-name = "ghc9205";
+  compiler-nix-name = "ghc925";
   overlays = [ 
     haskellNix.overlay
     (final: prev: {
