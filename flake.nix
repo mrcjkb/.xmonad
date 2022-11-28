@@ -8,7 +8,9 @@
 
   outputs = {self, nixpkgs, haskellNix, ...}:
   let
+  xmonad-session-overlay = import ./nix/overlay.nix;
   overlays = [ 
+    xmonad-session-overlay
     haskellNix.overlay
     (final: prev: {
       xmonadrc = final.haskell-nix.cabalProject' {
