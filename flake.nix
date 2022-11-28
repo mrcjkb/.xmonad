@@ -8,12 +8,13 @@
 
   outputs = {self, nixpkgs, haskellNix, ...}:
   let
+  compiler-nix-name = "ghc9205";
   overlays = [ 
     haskellNix.overlay
     (final: prev: {
       xmonadrc = final.haskell-nix.cabalProject' {
         src = builtins.path { path = ./.; name = "xmonadrc"; };
-        compiler-nix-name = "ghc8107";
+        inherit compiler-nix-name; 
         # This is used by `nix develop .` to open a shell for use with
         # `cabal`, `hlint` and `haskell-language-server`
         shell = {
@@ -34,7 +35,7 @@
       };
       xmobar-app = final.haskell-nix.cabalProject' {
         src = builtins.path { path = ./xmonad-session/xmobar; name = "xmobar-app"; };
-        compiler-nix-name = "ghc8107";
+        inherit compiler-nix-name; 
         # This is used by `nix develop .` to open a shell for use with
         # `cabal`, `hlint` and `haskell-language-server`
         shell = {
