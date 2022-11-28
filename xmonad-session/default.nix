@@ -1,5 +1,7 @@
-{ pkgs, defaultUser, ...}: 
+overlays: { pkgs, defaultUser, ...}: 
 {
+
+  nixpkgs.overlays = overlays;
   
   home-manager.users."${defaultUser}" = {
     xdg.configFile."xmonad" = {
