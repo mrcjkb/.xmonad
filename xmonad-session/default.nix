@@ -66,6 +66,7 @@
   };
   environment = {
     systemPackages = with pkgs; [
+      xmobar-app
       rofi
       ranger # TUI file browser
       alacritty
@@ -74,7 +75,6 @@
       xorg.xkill # Kill X windows with the cursor
       pscircle # Generate process tree visualizations
       haskellPackages.greenclip # Clipboard manager for use with rofi
-      haskellPackages.xmobar
       dunst
       bat
       pavucontrol # PulseAudio volume control UI
