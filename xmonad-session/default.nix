@@ -1,8 +1,8 @@
 overlays: { pkgs, defaultUser, ...}: 
-{
+let
+  xmobar-app = pkgs.callPackage ../nix/xmobar-app.nix;
+in {
 
-  nixpkgs.overlays = overlays;
-  
   home-manager.users."${defaultUser}" = {
     xdg.configFile."xmonad" = {
       source = ../.;
