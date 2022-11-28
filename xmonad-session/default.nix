@@ -1,4 +1,4 @@
-overlays: { pkgs, defaultUser, ...}: 
+{ pkgs, defaultUser, ...}: 
 let
   xmobar-app = pkgs.callPackage ../nix/xmobar-app.nix;
 in {
