@@ -1,6 +1,6 @@
 { pkgs, defaultUser, ...}: 
 let
-  xmobar-app = pkgs.unstable.haskell.packages.${"ghc925"}.callPackage ../nix/xmobar-app.nix {};
+  xmobar-app = pkgs.unstable.haskell.packages.ghc925.callPackage ./xmobar {};
 in {
 
   home-manager.users."${defaultUser}" = {

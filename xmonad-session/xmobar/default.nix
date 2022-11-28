@@ -2,7 +2,7 @@
 mkDerivation {
   pname = "xmobar-app";
   version = "1.0";
-  src = ./xmonad-session/xmobar;
+  src = ./.;
   isLibrary = false;
   isExecutable = true;
   libraryHaskellDepends = [ base xmobar ];
