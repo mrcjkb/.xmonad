@@ -6,7 +6,7 @@ import XMonad
 
 -- The preferred terminal program, which is used in a binding below and by
 myTerminal :: String
-myTerminal = "kitty"--"alacritty"
+myTerminal = "wezterm"--"alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -49,4 +49,5 @@ myBrowser :: String
 myBrowser = "firefox"
 
 myFileManager :: String
-myFileManager = "kitty -e ranger"
+-- myFileManager = "alacritty -e ranger"
+myFileManager = "wezterm start ranger"

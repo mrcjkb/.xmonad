@@ -30,7 +30,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch rofi and dashboard
     , ((modm,               xK_o     ), spawn "rofi -show drun -theme vapor.rasi")
     , ((modm .|. shiftMask, xK_o     ), spawn "rofi -show run -theme vapor.rasi")
-    , ((modm .|. mod1Mask,  xK_o      ), spawn "kitty -e yubikee-smartvpn officeVPN")
+    , ((modm .|. mod1Mask,  xK_o      ), spawn "alacritty -e yubikee-smartvpn officeVPN")
     
     , ((modm .|. mod1Mask,  xK_x     ), spawn "xkill")
     , ((modm .|. mod1Mask,  xK_k     ), spawn "inkview $HOME/git/github/mrcjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
