@@ -1,7 +1,5 @@
 { pkgs, defaultUser, ...}: 
-let
-  xmobar-app = pkgs.unstable.haskell.packages.ghc925.callPackage ./xmobar/default.nix {};
-in {
+{
 
   home-manager.users."${defaultUser}" = {
     xdg.configFile."xmonad" = {
@@ -68,7 +66,6 @@ in {
   };
   environment = {
     systemPackages = with pkgs; [
-      xmobar-app
       rofi
       ranger # TUI file browser
       alacritty
