@@ -1,18 +1,21 @@
-OPTIONS="\tLogout\n\tShutdown\n\tReboot"
+OPTIONS="\tShutdown\n\tReboot\n鈴\tSuspend\n\tLock\n"
 
 option=`echo -e $OPTIONS | awk '{print $1}' | tr -d '\r\n\t'`
 if [ "$@" ]
 then
 	case $@ in
-		*Logout)
-			i3-msg exit
-			;;
 		*Shutdown)
 			shutdown now
 			;;
 		*Reboot)
 			reboot
 			;;
+    *Suspend)
+     systemctl suspend
+     ;;
+    *Lock)
+      slock
+      ;;
 	esac
 else
 	echo -e $OPTIONS

@@ -30,7 +30,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        i3lock
+        slock
         ;;
     $suspend)
         mpc -q pause
