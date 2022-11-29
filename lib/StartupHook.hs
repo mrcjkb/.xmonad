@@ -18,14 +18,14 @@ import Control.Monad
 myStartupHook :: X ()
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr"
-  spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
-  spawn "autorandr -c"
-  spawnOnce "greenclip daemon"
-  spawnOnce "dunst"
-  spawnOnce "yubioath-desktop"
+  -- spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
+  -- spawn "autorandr -c"
+  -- spawnOnce "greenclip daemon"
+  -- spawnOnce "dunst"
+  -- spawnOnce "yubioath-desktop"
   -- spawnOnce "nextcloud-wrapper" -- Waits for keepassxc
   -- spawnOnce "keepassxc"
-  spawnOnce "bat cache --build"
+  -- spawnOnce "bat cache --build"
   setWMName "LG3D"
   >>
   addEWMHFullscreen
