@@ -23,8 +23,8 @@ myStartupHook = do
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
   spawnOnce "yubioath-desktop"
-  spawnOnce "nextcloud-wrapper" -- Waits for keepassxc
-  spawnOnce "keepassxc"
+  -- spawnOnce "nextcloud-wrapper" -- Waits for keepassxc
+  -- spawnOnce "keepassxc"
   spawnOnce "bat cache --build"
   setWMName "LG3D"
   >>
