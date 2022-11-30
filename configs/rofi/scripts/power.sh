@@ -1,4 +1,4 @@
-OPTIONS="\tShutdown\n\tReboot\n鈴\tSuspend\n\tLock\n"
+OPTIONS="\tShutdown\n\tReboot\n鈴\tHibernate\n"
 
 option=`echo -e $OPTIONS | awk '{print $1}' | tr -d '\r\n\t'`
 if [ "$@" ]
@@ -10,12 +10,9 @@ then
 		*Reboot)
 			reboot
 			;;
-    *Suspend)
-     systemctl suspend
+    *Hibernate)
+     systemctl hibernate
      ;;
-    *Lock)
-      slock
-      ;;
 	esac
 else
 	echo -e $OPTIONS
