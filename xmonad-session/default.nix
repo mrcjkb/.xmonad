@@ -1,4 +1,4 @@
-{ pkgs, lib, defaultUser, ...}: 
+{ pkgs, defaultUser, ...}: 
 {
 
   home-manager.users."${defaultUser}" = {
@@ -17,10 +17,6 @@
     xserver = { 
       # Enable the X11 windowing system.
       enable = true;
-      # Workaround for https://github.com/alacritty/alacritty/issues/3500:w
-      config = lib.mkAfter ''
-        maxbigreqsize 127
-      '';
       displayManager = {
         lightdm = {
           enable = true;
