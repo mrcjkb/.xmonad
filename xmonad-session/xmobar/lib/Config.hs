@@ -7,11 +7,11 @@ myConfig = defaultConfig
    { 
    -- appearance
      font =         "xft:JetBrains Mono:size=9:bold:antialias=true"
-   , bgColor =      "#202020"
+   , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
    , border =       BottomB
-   , borderColor =  "#BC96DA"
+   , borderColor =  "#B480D6"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
@@ -44,7 +44,7 @@ myConfig = defaultConfig
 
         -- weather monitor
         [ Run $ Weather "LSZH" [ "--template"
-                               , "<skyCondition> | <station>: <fc=#FAC536><tempC></fc>°C | <fc=#FAC536><rh></fc>% | <fc=#FAC536><pressure></fc>hPa"
+                               , "<skyCondition> | <station>: <fc=#E6B455><tempC></fc>°C | <fc=#E6B455><rh></fc>% | <fc=#E6B455><pressure></fc>hPa"
                                ] 36000
 
         -- XMonad logs
@@ -107,7 +107,7 @@ myConfig = defaultConfig
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run $ Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run $ Date           "<fc=#FFFFFF>%F (%a) %T</fc>" "date" 10
 
         -- keyboard layout indicator
         , Run $ Kbd            [ ("us(altgr-intl)" , "<fc=" <> okColour <> ">US(altgr-intl)</fc>")
@@ -116,8 +116,8 @@ myConfig = defaultConfig
         ]
   }
   where
-    criticalColour = "#F25056"
-    warnColour = "#FAC536"
-    okColour = "#39EA49"
+    criticalColour = "#FF5370"
+    warnColour = "#E6B455"
+    okColour = "#B480D6"
 
 

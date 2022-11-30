@@ -42,9 +42,9 @@ myWorkspaces = map show ([1..9] :: [Integer])
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor :: String
-myNormalBorderColor  = "#3b4252"
+myNormalBorderColor  = "#212121"
 myFocusedBorderColor :: String
-myFocusedBorderColor = "#bc96da"
+myFocusedBorderColor = "#B480D6"
 
 myBrowser :: String
 myBrowser = "firefox"
