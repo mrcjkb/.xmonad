@@ -30,6 +30,9 @@
               background-image = ""
             '';
           };
+          extraConfig = ''
+            xserver-command=X -maxbigreqsize 127
+          '';
         };
         defaultSession = "none+xmonad";
       };
