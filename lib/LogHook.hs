@@ -21,5 +21,10 @@ myLogHook :: X ()
 myLogHook = return ()
 
 withStatusBar :: LayoutClass l Window => XConfig l -> XConfig l
-withStatusBar = withSB $ statusBarProp "xmobar-app" (pure xmobarPP)
-
+withStatusBar = withSB 
+              $ statusBarProp "xmobar-app" 
+              $ pure def { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
+                         , ppTitle   = xmobarColor "#B480D6" "" . shorten 40
+                         , ppVisible = wrap "(" ")"
+                         , ppUrgent  = xmobarColor "#FF5370" "#E6B455"
+                         }
