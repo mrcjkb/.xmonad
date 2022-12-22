@@ -44,7 +44,7 @@ myConfig = defaultConfig
 
         -- weather monitor
         [ Run $ Weather "LSZH" [ "--template"
-                               , "<skyCondition> <fc=#E6B455><tempC></fc> 糖 | <fc=#E6B455><rh></fc> \58227 @ <station>"
+                               , "<skyCondition> <fc=#E6B455><tempC></fc> °C <fc=#E6B455><rh></fc> \58227 \61946 <station>"
                                ] 36000
 
         -- XMonad logs
@@ -53,7 +53,7 @@ myConfig = defaultConfig
         -- , Run $ Volume "default" "Master" [] 10
 
         -- network activity monitor (dynamic interface resolution)
-        , Run $ DynNetwork     [ "--template" , "<dev>: \60064 <tx> kB/s \60061 <rx> kB/s"
+        , Run $ DynNetwork     [ "--template" , "<dev>: \60064<tx> kB/s \60061<rx> kB/s"
                                , "--Low"      , "1000"       -- units: B/s
                                , "--High"     , "5000"       -- units: B/s
                                , "--low"      , okColour
@@ -80,7 +80,7 @@ myConfig = defaultConfig
         --                        ] 50
                           
         -- memory usage monitor
-        , Run $ Memory         [ "--template" ,"\63578 <usedratio>%"
+        , Run $ Memory         [ "--template" ,"\63578 <usedratio> %"
                                , "--Low"      , "20"        -- units: %
                                , "--High"     , "90"        -- units: %
                                , "--low"      , okColour
