@@ -6,7 +6,7 @@ myConfig :: Config
 myConfig = defaultConfig 
    { 
    -- appearance
-     font =         "xft:JetBrains Mono Bold Nerd Font Complete Mono:size=12:bold:antialias=true"
+     font =         "xft:JetBrains Mono Bold Nerd Font Complete Mono:size=14:bold:antialias=true"
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
@@ -80,7 +80,7 @@ myConfig = defaultConfig
         --                        ] 50
                           
         -- memory usage monitor
-        , Run $ Memory         [ "--template" ,"Mem: <usedratio>%"
+        , Run $ Memory         [ "--template" ,"\63578 <usedratio>%"
                                , "--Low"      , "20"        -- units: %
                                , "--High"     , "90"        -- units: %
                                , "--low"      , okColour
@@ -98,7 +98,7 @@ myConfig = defaultConfig
 
                                , "--" -- battery specific options
                                       -- discharging status
-                               , "-o" , "\62845<left>% (<timeleft>)"
+                               , "-o" , "\62845 <left>% (<timeleft>)"
                                -- AC "on" status, charging 
                                , "-O" , "<fc=" <> warnColour <> ">\62851</fc>"
                                -- charged status 
