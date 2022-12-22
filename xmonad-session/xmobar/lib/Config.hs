@@ -10,9 +10,9 @@ myConfig = defaultConfig
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
-   , border =       FullBM 20
-   , borderColor =  "#212121"
-   -- , borderColor =  "#B480D6"
+   , border =       BottomBM 20
+   -- , borderColor =  "#212121"
+   , borderColor =  "#B480D6"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
