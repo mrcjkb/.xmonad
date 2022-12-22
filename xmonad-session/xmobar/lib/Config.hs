@@ -100,7 +100,7 @@ myConfig = defaultConfig
                                       -- discharging status
                                , "-o" , "<left>% (<timeleft>)"
                                -- AC "on" status
-                               , "-O" , "<fc=" <> warnColour <> ">[U+F242]</fc>"
+                               , "-O" , "<fc=" <> warnColour <> ">\62018</fc>"
                                -- charged status
                                , "-i" , "<fc=" <> okColour <> ">Charged</fc>"
                                ] 50
