@@ -48,7 +48,7 @@ myConfig = defaultConfig
                                ] 36000
 
         -- XMonad logs
-        , Run $ XMonadLog
+        , Run XMonadLog
 
         -- , Run $ Volume "default" "Master" [] 10
 
@@ -62,22 +62,22 @@ myConfig = defaultConfig
                                ] 10
 
         -- cpu activity monitor
-        , Run $ MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
-                               , "--Low"      , "50"         -- units: %
-                               , "--High"     , "85"         -- units: %
-                               , "--low"      , okColour
-                               , "--normal"   , warnColour
-                               , "--high"     , criticalColour
-                               ] 10
+        -- , Run $ MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+        --                        , "--Low"      , "50"         -- units: %
+        --                        , "--High"     , "85"         -- units: %
+        --                        , "--low"      , okColour
+        --                        , "--normal"   , warnColour
+        --                        , "--high"     , criticalColour
+        --                        ] 10
 
         -- cpu core temperature monitor
-        , Run $ CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
-                               , "--Low"      , "70"        -- units: °C
-                               , "--High"     , "80"        -- units: °C
-                               , "--low"      , okColour
-                               , "--normal"   , warnColour
-                               , "--high"     , criticalColour
-                               ] 50
+        -- , Run $ CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+        --                        , "--Low"      , "70"        -- units: °C
+        --                        , "--High"     , "80"        -- units: °C
+        --                        , "--low"      , okColour
+        --                        , "--normal"   , warnColour
+        --                        , "--high"     , criticalColour
+        --                        ] 50
                           
         -- memory usage monitor
         , Run $ Memory         [ "--template" ,"Mem: <usedratio>%"
