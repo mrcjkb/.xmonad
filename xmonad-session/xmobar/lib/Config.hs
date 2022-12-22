@@ -16,7 +16,7 @@ myConfig = defaultConfig
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "\62227 %XMonadLog% }{ %battery% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %kbd% "
+   , template = "\62227 \59255 %XMonadLog% }{ %battery% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %kbd% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -44,7 +44,7 @@ myConfig = defaultConfig
 
         -- weather monitor
         [ Run $ Weather "LSZH" [ "--template"
-                               , "<skyCondition> | <station>: <fc=#E6B455><tempC></fc>°C | <fc=#E6B455><rh></fc>%"
+                               , "<skyCondition> <fc=#E6B455><tempC></fc> 糖 | <fc=#E6B455><rh></fc> \58227 @ <station>"
                                ] 36000
 
         -- XMonad logs
