@@ -89,7 +89,7 @@ myConfig = defaultConfig
                                ] 10
 
         -- battery monitor
-        , Run $ Battery        [ "--template" , "Batt: <acstatus>"
+        , Run $ Battery        [ "--template" , "<acstatus>"
                                , "--Low"      , "10"        -- units: %
                                , "--High"     , "80"        -- units: %
                                , "--low"      , criticalColour
@@ -98,11 +98,11 @@ myConfig = defaultConfig
 
                                , "--" -- battery specific options
                                       -- discharging status
-                               , "-o" , "<left>% (<timeleft>)"
-                               -- AC "on" status
-                               , "-O" , "<fc=" <> warnColour <> ">\62018</fc>"
-                               -- charged status
-                               , "-i" , "<fc=" <> okColour <> ">Charged</fc>"
+                               , "-o" , "\62845<left>% (<timeleft>)"
+                               -- AC "on" status, charging 
+                               , "-O" , "<fc=" <> warnColour <> ">\62851</fc>"
+                               -- charged status 
+                               , "-i" , "<fc=" <> okColour <> ">\62840</fc>"
                                ] 50
 
         -- time and date indicator 
