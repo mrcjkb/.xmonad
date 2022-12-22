@@ -10,7 +10,7 @@ myConfig = defaultConfig
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
-   , border =       FullBM 10
+   , border =       FullBM 20
    , borderColor =  "#212121"
    -- , borderColor =  "#B480D6"
 
