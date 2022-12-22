@@ -6,7 +6,7 @@ myConfig :: Config
 myConfig = defaultConfig 
    { 
    -- appearance
-     font =         "xft:JetBrains Mono Bold Nerd Font Complete Mono:size=14:bold:antialias=true"
+     font =         "xft:JetBrains Mono Nerd Font Mono:size=14:bold:antialias=true"
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
@@ -16,7 +16,7 @@ myConfig = defaultConfig
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%XMonadLog% }{ %battery% | %memory% | %dynnetwork% || %LSZH% | %date% || %kbd% "
+   , template = "\62227 %XMonadLog% }{ %battery% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %kbd% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
