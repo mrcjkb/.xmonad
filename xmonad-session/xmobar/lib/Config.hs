@@ -10,8 +10,9 @@ myConfig = defaultConfig
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
-   , border =       BottomB
-   , borderColor =  "#B480D6"
+   , border =       FullBM 2
+   , borderColor =  "#212121"
+   -- , borderColor =  "#B480D6"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
@@ -44,7 +45,7 @@ myConfig = defaultConfig
 
         -- weather monitor
         [ Run $ Weather "LSZH" [ "--template"
-                               , "<skyCondition> <fc=#E6B455><tempC></fc> °C <fc=#E6B455><rh></fc> \58227 \61946 <station>"
+                               , "<skyCondition> <fc=#E6B455><tempC></fc> °C - <fc=#E6B455><rh></fc> \58227 \61946 <station>"
                                ] 36000
 
         -- XMonad logs
@@ -62,7 +63,7 @@ myConfig = defaultConfig
                                ] 10
 
         -- cpu activity monitor
-        -- , Run $ MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+        -- , Run $ MultiCpu       [ "--template" , "Cpu: <total> %"
         --                        , "--Low"      , "50"         -- units: %
         --                        , "--High"     , "85"         -- units: %
         --                        , "--low"      , okColour
@@ -71,7 +72,7 @@ myConfig = defaultConfig
         --                        ] 10
 
         -- cpu core temperature monitor
-        -- , Run $ CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+        -- , Run $ CoreTemp       [ "--template" , "Temp: <core>°C"
         --                        , "--Low"      , "70"        -- units: °C
         --                        , "--High"     , "80"        -- units: °C
         --                        , "--low"      , okColour
