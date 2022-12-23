@@ -10,8 +10,8 @@ myConfig = defaultConfig
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     Top
-   , border =       BottomBM 20
-   -- , borderColor =  "#212121"
+   , border =       Bottom
+   , borderWidth = 18
    , borderColor =  "#B480D6"
 
    -- layout
