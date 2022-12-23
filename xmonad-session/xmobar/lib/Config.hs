@@ -6,7 +6,7 @@ myConfig :: Config
 myConfig = defaultConfig 
    { 
    -- appearance
-     font =         "xft:JetBrains Mono Nerd Font Mono:size=14:bold:antialias=true"
+     font =         "xft:JetBrains Mono Nerd Font Mono:size=16:bold:antialias=true"
    , bgColor =      "#212121"
    , fgColor =      "white"
    , position =     TopH 30
