@@ -9,7 +9,7 @@ myConfig = defaultConfig
      font =         "xft:JetBrains Mono Nerd Font Mono:size=14:bold:antialias=true"
    , bgColor =      "#212121"
    , fgColor =      "white"
-   , position =     TopH 40
+   , position =     TopH 30
    , border =       BottomB
    , borderWidth = 1
    , borderColor =  "#B480D6"
