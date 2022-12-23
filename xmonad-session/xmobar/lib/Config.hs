@@ -9,9 +9,9 @@ myConfig = defaultConfig
      font =         "xft:JetBrains Mono Nerd Font Mono:size=14:bold:antialias=true"
    , bgColor =      "#212121"
    , fgColor =      "white"
-   , position =     Top
-   , border =       Bottom
-   , borderWidth = 18
+   , position =     TopH 20
+   , border =       BottomB
+   , borderWidth = 3
    , borderColor =  "#B480D6"
 
    -- layout
