@@ -45,7 +45,7 @@ myConfig = defaultConfig
 
         -- weather monitor
         [ Run $ Weather "LSZH" [ "--template"
-                               , "<skyCondition> <fc=#E6B455><tempC></fc> °C - <fc=#E6B455><rh></fc> \58227 \61946 <station>"
+                               , "<skyCondition> <fc=#E6B455><tempC> °C</fc> <fc=#6E98EB><rh> \58227</fc> \61946 <station>"
                                ] 36000
 
         -- XMonad logs
