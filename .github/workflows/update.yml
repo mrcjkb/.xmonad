@@ -38,7 +38,7 @@ jobs:
     - name: add haskell.nix substituters
       run: sed -i '/^substituters =/ s/$/ https:\/\/cache.iog.io/' ~/.config/nix/nix.conf
     - name: build 
-      run: nix build
+      run: nix build -L
 
   shell:
     runs-on: ubuntu-latest
@@ -54,5 +54,7 @@ jobs:
       run: sed -i '/^trusted-public-keys =/ s/$/ hydra.iohk.io:f\/Ea+s+dFdN+3Y\/G+FDgSq+a5NEWhJGzdjvKNGv0\/EQ=/' ~/.config/nix/nix.conf
     - name: add haskell.nix substituters
       run: sed -i '/^substituters =/ s/$/ https:\/\/cache.iog.io/' ~/.config/nix/nix.conf
-    - name: build shell
-      run: nix build .#shells.x86_64-linux.default --print-build-logs
+    - name: build xmonadrc shell
+      run: nix build .#xmonadrc.shell -L
+    - name: build xmobar shell
+      run: nix build .#xmobar-app.shell -L
