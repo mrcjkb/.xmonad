@@ -48,7 +48,9 @@
             implicit-hie
           ];
           shellHook = ''
+            pushd xmonad-session/xmobar
             gen-hie --cabal hie.yaml
+            popd
           '';
         };
       };
