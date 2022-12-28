@@ -27,10 +27,9 @@
           packages = with pkgs.haskellPackages; [
             implicit-hie
           ];
-          # FIXME
-          # shellHook = ''
-          #   gen-hie --cabal hie.yaml
-          # '';
+          shellHook = ''
+            gen-hie --cabal hie.yaml
+          '';
         };
       };
       xmobar-app = final.haskell-nix.cabalProject' {
@@ -45,6 +44,12 @@
             haskell-language-server = "latest";
           };
           withHoogle = true;
+          packages = with pkgs.haskellPackages; [
+            implicit-hie
+          ];
+          shellHook = ''
+            gen-hie --cabal hie.yaml
+          '';
         };
       };
     })
