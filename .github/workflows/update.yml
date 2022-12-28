@@ -53,4 +53,4 @@ jobs:
     - name: add haskell.nix substituters
       run: sed -i '/^substituters =/ s/$/ https:\/\/cache.iog.io/' ~/.config/nix/nix.conf
     - name: build shell
-      run: nix build .#devShells.x86_64-linux.default --print-build-logs
+      run: nix build .#shells.x86_64-linux.default --print-build-logs
