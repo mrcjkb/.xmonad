@@ -55,6 +55,6 @@ jobs:
     - name: add haskell.nix substituters
       run: sed -i '/^substituters =/ s/$/ https:\/\/cache.iog.io/' ~/.config/nix/nix.conf
     - name: build xmonadrc shell
-      run: nix build .#xmonadrc.shell -L
+      run: nix build .#xmonadrc-package.shell -L
     - name: build xmobar shell
-      run: nix build .#xmobar-app.shell -L
+      run: nix build .#xmobar-package.shell -L
