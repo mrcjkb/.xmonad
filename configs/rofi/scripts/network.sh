@@ -5,7 +5,7 @@
 ## Github : @adi1090x
 ## Reddit : @adi1090x
 
-rofi_command="rofi -theme themes/network.rasi"
+rofi_command="rofi -theme themes/menu/network.rasi"
 
 ## Get info
 IFACE="$(nmcli | grep -i interface | awk '/interface/ {print $2}')"
@@ -25,12 +25,12 @@ if (ping -c 1 archlinux.org || ping -c 1 google.com || ping -c 1 bitbucket.org |
             connected="直"
         fi
 	active="-a 0"
-	MSG="﬉ Online"
+	SSID="﬉ $(iwgetid -r)"
 	PIP="$(dig +short myip.opendns.com @resolver1.opendns.com )"
 	fi
 else
     urgent="-u 0"
-    MSG="Offline"
+    SSID="Disconnected"
     PIP="Not Available"
     connected="睊"
 fi
@@ -43,7 +43,7 @@ launch="歷"
 options="$connected\n$bmon\n$launch_cli\n$launch"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$MSG" -dmenu $active $urgent -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$SSID  :  $PIP" -dmenu $active $urgent -selected-row 1)"
 case $chosen in
     $connected)
 		if [[ $STATUS == *"enable"* ]]; then
