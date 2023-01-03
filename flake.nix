@@ -4,14 +4,33 @@
   inputs = {
     haskellNix.url = "github:input-output-hk/haskell.nix";
     nixpkgs.follows = "haskellNix/nixpkgs-unstable";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     haskellNix,
+    pre-commit-hooks,
     ...
   }: let
+    supportedSystems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    perSystem = nixpkgs.lib.genAttrs supportedSystems;
+    pkgsFor = system: import nixpkgs {inherit system;};
+    pre-commit-check-for = system:
+      pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+
     compiler-nix-name = "ghc925";
     overlays = [
       haskellNix.overlay
@@ -81,5 +100,8 @@
       nixosModule = import ./xmonad-session;
       defaultPackage.x86_64-linux = xmonadrc-package;
       inherit xmonadrc-package xmobar-package;
+      checks = perSystem (system: {
+        formatting = pre-commit-check-for system;
+      });
     };
 }
