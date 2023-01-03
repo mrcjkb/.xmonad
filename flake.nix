@@ -22,7 +22,6 @@
       "x86_64-linux"
     ];
     perSystem = nixpkgs.lib.genAttrs supportedSystems;
-    pkgsFor = system: import nixpkgs {inherit system;};
     pre-commit-check-for = system:
       pre-commit-hooks.lib.${system}.run {
         src = ./.;
