@@ -1,6 +1,8 @@
-{ pkgs, defaultUser, ...}: 
 {
-
+  pkgs,
+  defaultUser,
+  ...
+}: {
   home-manager.users."${defaultUser}" = {
     xdg.configFile."xmonad" = {
       source = ../.;
@@ -10,11 +12,10 @@
       source = ../configs/rofi/.;
       recursive = true;
     };
-
   };
 
   services = {
-    xserver = { 
+    xserver = {
       # Enable the X11 windowing system.
       enable = true;
       displayManager = {
