@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 
 module LogHook
-  ( withStatusBar
+  ( withStatusBars
   , myLogHook
   ) where
 
@@ -20,11 +20,16 @@ import XMonad.Hooks.StatusBar.PP
 myLogHook :: X ()
 myLogHook = return ()
 
-withStatusBar :: LayoutClass l Window => XConfig l -> XConfig l
-withStatusBar = withSB 
-              $ statusBarProp "xmobar-app" 
-              $ pure def { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
-                         , ppTitle   = xmobarColor "#B480D6" "" . shorten 40
-                         , ppVisible = wrap "(" ")"
-                         , ppUrgent  = xmobarColor "#FF5370" "#E6B455"
-                         }
+
+withStatusBars :: LayoutClass l Window => XConfig l -> XConfig l
+withStatusBars = dynamicSBs barSpawner 
+
+barSpawner :: ScreenId -> IO StatusBarConfig
+barSpawner sid = pure $ xmobar sid
+  where
+    pp = def { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
+             , ppTitle   = xmobarColor "#B480D6" "" . shorten 40
+             , ppVisible = wrap "(" ")"
+             , ppUrgent  = xmobarColor "#FF5370" "#E6B455"
+             }
+    xmobar sid' = statusBarPropTo ("_XMONAD_LOG_" <> show sid') ("xmobar-app -x " <> show sid') $ pure pp

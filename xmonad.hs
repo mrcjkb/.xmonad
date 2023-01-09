@@ -14,7 +14,7 @@ import EventHandling
 import Defaults
 
 main :: IO ()
-main = xmonad . withStatusBar . fullscreenSupport . docks . ewmh $ defaults
+main = xmonad . withStatusBars . fullscreenSupport . docks . ewmh $ defaults
  where 
   defaults = def 
     { terminal           = myTerminal
