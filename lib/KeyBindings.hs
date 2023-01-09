@@ -10,6 +10,7 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Util.Paste
+import XMonad.Hooks.StatusBar
 
 import Defaults
 
@@ -56,7 +57,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
 
     -- My Stuff
-    , ((modm,               xK_b     ), spawn "killall xmobar-app")
+    , ((modm,               xK_b     ), killAllStatusBars)
     , ((modm, xK_v                   ), pasteSelection)
 
     -- close focused window
