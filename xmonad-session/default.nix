@@ -76,7 +76,7 @@
       dmenu # Expected by xmonad
       gxmessage # Used by xmonad to show help
       xorg.xkill # Kill X windows with the cursor
-      pscircle # Generate process tree visualizations
+      # pscircle # Generate process tree visualizations
       haskellPackages.greenclip # Clipboard manager for use with rofi
       dunst
       bat
