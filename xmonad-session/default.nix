@@ -59,11 +59,6 @@
     };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-    };
   };
   programs = {
     slock.enable = true;
