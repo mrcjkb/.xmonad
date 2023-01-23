@@ -141,7 +141,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. mod1Mask,  xK_v     ), spawn "pavucontrol")
     , ((modm .|. shiftMask, xK_i     ), spawn "inkscape")
     , ((modm .|. shiftMask, xK_k     ), spawn "keepassxc")
-    , ((modm .|. shiftMask, xK_y     ), spawn "yubioath-desktop")
+    , ((modm .|. shiftMask, xK_y     ), spawn "yubioath-flutter")
     ]
 
 

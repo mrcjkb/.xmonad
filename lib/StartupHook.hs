@@ -22,7 +22,7 @@ myStartupHook = do
   spawn "autorandr -c"
   spawnOnce "greenclip daemon"
   spawnOnce "dunst"
-  spawnOnce "authenticator"
+  spawnOnce "yubioath-flutter"
   spawnOnce "nextcloud-wrapper" -- Also spawns keepassxc
   spawnOnce "bat cache --build"
   setWMName "LG3D"
