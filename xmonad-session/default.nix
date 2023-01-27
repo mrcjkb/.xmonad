@@ -12,6 +12,17 @@
       source = ../configs/rofi/.;
       recursive = true;
     };
+    services = {
+      dunst = {
+        enable = true;
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+        # TODO: Move to stylix module
+        configFile = ../configs/dunstrc;
+      };
+    };
   };
 
   services = {
@@ -59,15 +70,6 @@
     };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
-    dunst = {
-      enable = true;
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-      # TODO: Move to stylix module
-      configFile = ../configs/dunstrc;
-    };
   };
   programs = {
     slock.enable = true;
