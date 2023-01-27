@@ -21,7 +21,6 @@ myStartupHook = do
   -- spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
   spawn "autorandr -c"
   spawnOnce "greenclip daemon"
-  spawnOnce "yubioath-flutter"
   spawnOnce "nextcloud-wrapper" -- Also spawns keepassxc
   spawnOnce "bat cache --build"
   setWMName "LG3D"
