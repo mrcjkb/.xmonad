@@ -59,6 +59,15 @@
     };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
+    dunst = {
+      enable = true;
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+      # TODO: Move to stylix module
+      configFile = ../configs/dunstrc;
+    };
   };
   programs = {
     slock.enable = true;
@@ -73,7 +82,6 @@
       xorg.xkill # Kill X windows with the cursor
       # pscircle # Generate process tree visualizations
       haskellPackages.greenclip # Clipboard manager for use with rofi
-      dunst
       bat
       pavucontrol # PulseAudio volume control UI
       pulseaudio
