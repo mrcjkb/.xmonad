@@ -19,8 +19,6 @@
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
         };
-        # TODO: Move to stylix module
-        configFile = ../configs/dunstrc;
       };
     };
   };
