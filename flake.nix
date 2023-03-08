@@ -30,7 +30,7 @@
         };
       };
 
-    compiler-nix-name = "ghc926";
+    compiler-nix-name = "ghc925";
     overlays = [
       haskellNix.overlay
       (final: prev: {
