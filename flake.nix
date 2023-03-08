@@ -43,6 +43,7 @@
           # This is used by `nix develop .` to open a shell for use with
           # `cabal`, `hlint` and `haskell-language-server`
           shell = {
+            name = "xmonadrc-shell";
             tools = {
               cabal = "latest";
               hlint = "latest";
@@ -91,11 +92,13 @@
     };
     xmonadrc-flake = pkgs.xmonadrc.flake {};
     xmobar-app-flake = pkgs.xmobar-app.flake {};
+    merged-flakes = pkgs.lib.attrsets.recursiveUpdate xmonadrc-flake xmobar-app-flake;
     xmonadrc-package = xmonadrc-flake.packages."xmonadrc:exe:xmonadrc";
     xmobar-package = xmobar-app-flake.packages."xmobar-app:exe:xmobar-app";
   in
-    xmonadrc-flake
-    // {
+    pkgs.lib.attrsets.recursiveUpdate
+    merged-flakes
+    {
       nixosModule = import ./xmonad-session;
       defaultPackage.x86_64-linux = xmonadrc-package;
       inherit xmonadrc-package xmobar-package;
