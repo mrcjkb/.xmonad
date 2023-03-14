@@ -12,6 +12,9 @@
       source = ../configs/rofi/.;
       recursive = true;
     };
+    programs = {
+      rofi.enable = true;
+    };
     services = {
       dunst = {
         enable = true;
@@ -74,7 +77,6 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      rofi
       ranger # TUI file browser
       alacritty
       dmenu # Expected by xmonad
