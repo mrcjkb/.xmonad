@@ -148,8 +148,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     -- Search --
-    [ ((modm, xK_h), promptSearch greenXPConfig hoogle)
-    , ((modm, xK_g), promptSearch greenXPConfig google)
+    [ ((modm, xK_h), promptSearch def hoogle)
+    , ((modm, xK_g), promptSearch def google)
     ]
 
     ++
