@@ -11,6 +11,7 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Util.Paste
 import XMonad.Hooks.StatusBar
+import XMonad.Actions.Search
 
 import Defaults
 
@@ -144,6 +145,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_y     ), spawn "yubioath-flutter")
     ]
 
+    ++
+
+    -- Search --
+    [ ((modm, xK_h), promptSearch greenXPConfig hoogle)
+    , ((modm, xK_g), promptSearch greenXPConfig google)
+    ]
 
     ++
 
