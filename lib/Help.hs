@@ -78,4 +78,8 @@ help = unlines [ "The default modifier key is 'super'. Default keybindings:"
                , "mod-Shift-k  Launch Keepass"
                , "mod-Shift-y  Launch yubioath-desktop"
                , "mod-Alt-k        Launch lens (Kubernetes IDE)"
+               , ""
+               , "-- Search"
+               , "mod-Alt-h        Hoogle search"
+               , "mod-Alt-g        Google search"
                ]
