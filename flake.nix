@@ -1,6 +1,11 @@
 {
   description = "NixOS module for an xmonad session";
 
+  nixConfig = {
+    extra-substituters = "https://mrcjkb.cachix.org";
+    extra-trusted-public-keys = "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4=";
+  };
+
   inputs = {
     haskellNix.url = "github:input-output-hk/haskell.nix";
     nixpkgs.follows = "haskellNix/nixpkgs-unstable";
@@ -11,7 +16,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     haskellNix,
     pre-commit-hooks,
