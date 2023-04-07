@@ -1,9 +1,9 @@
 module WindowRules where
 
 import XMonad
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Fullscreen
-import XMonad.Hooks.ManageDocks
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -21,11 +21,13 @@ import XMonad.Hooks.ManageDocks
 -- 'className' and 'resource' are used below.
 --
 myManageHook :: ManageHook
-myManageHook = fullscreenManageHook <+> manageDocks <+> composeAll
-    [ className =? "MPlayer"        --> doFloat
-   --, className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
-    , isFullscreen --> doFullFloat
-                                 ]
-
+myManageHook =
+  fullscreenManageHook
+    <+> manageDocks
+    <+> composeAll
+      [ className =? "MPlayer" --> doFloat
+      , -- , className =? "Gimp"           --> doFloat
+        resource =? "desktop_window" --> doIgnore
+      , resource =? "kdesktop" --> doIgnore
+      , isFullscreen --> doFullFloat
+      ]

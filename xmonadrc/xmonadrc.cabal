@@ -1,7 +1,7 @@
 name:          xmonadrc
 version:       1.0
 synopsis:      My XMonad setup
-license:       GPL2
+license:       GPL-2
 license-file:  LICENSE
 author:        Marc Jakobi <mrcjkb89@outlook.com>
 maintainer:    Marc Jakobi <mrcjkb89@outlook.com>

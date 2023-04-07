@@ -1,4 +1,4 @@
-# My XMonad config.
+# My XMonad config
 
 [![Nix build](https://github.com/MrcJkb/.xmonad/actions/workflows/nix-build.yml/badge.svg)](https://github.com/MrcJkb/.xmonad/actions/workflows/nix-build.yml)
 
@@ -8,14 +8,6 @@ See also the corresponding [NixOS flake](https://github.com/MrcJkb/nixfiles/blob
 
 Nix needs to be installed with flakes enabled.
 
-To enter a nix shell for the `xmonadrc`
-
-```
+```console
 nix develop .
-```
-
-To enter a nix shell for the `xmobar-app`:
-
-```
-nix develop .#xmobar-package
 ```

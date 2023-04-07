@@ -5,11 +5,11 @@
 }: {
   home-manager.users."${defaultUser}" = {
     xdg.configFile."xmonad" = {
-      source = ../.;
+      source = ../../xmonadrc;
       recursive = true;
     };
     xdg.configFile."rofi" = {
-      source = ../configs/rofi/.;
+      source = ../../configs/rofi/.;
       recursive = true;
     };
     programs = {
@@ -76,23 +76,27 @@
     slock.enable = true;
   };
   environment = {
-    systemPackages = with pkgs; [
-      ranger # TUI file browser
-      alacritty
-      dmenu # Expected by xmonad
-      gxmessage # Used by xmonad to show help
-      xorg.xkill # Kill X windows with the cursor
-      # pscircle # Generate process tree visualizations
-      haskellPackages.greenclip # Clipboard manager for use with rofi
-      bat
-      pavucontrol # PulseAudio volume control UI
-      pulseaudio
-      brightnessctl # Brightness control CLI
-      scrot # A command-line screen capture utility
-      #### NUR packages ###
-      # (from mrcpkgs NUR package, managed by Marc Jakobi)
-      # XXX Note: It may be necessary to update the nur tarball if a package is not found.
-      nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
-    ];
+    systemPackages =
+      (with pkgs.haskellPackages; [
+        xmobar-app
+        greenclip # Clipboard manager for use with rofi
+      ])
+      ++ (with pkgs; [
+        ranger # TUI file browser
+        alacritty
+        dmenu # Expected by xmonad
+        gxmessage # Used by xmonad to show help
+        xorg.xkill # Kill X windows with the cursor
+        # pscircle # Generate process tree visualizations
+        bat
+        pavucontrol # PulseAudio volume control UI
+        pulseaudio
+        brightnessctl # Brightness control CLI
+        scrot # A command-line screen capture utility
+        #### NUR packages ###
+        # (from mrcpkgs NUR package, managed by Marc Jakobi)
+        # XXX Note: It may be necessary to update the nur tarball if a package is not found.
+        nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
+      ]);
   };
 }
