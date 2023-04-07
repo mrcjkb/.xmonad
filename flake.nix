@@ -26,10 +26,10 @@
       "aarch64-linux"
       "x86_64-linux"
     ];
+
+    overlay = import ./nix/overlay.nix {};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
-      overlay = import ./nix/overlay.nix {};
-
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -89,7 +89,6 @@
       devShells = {
         default = shell;
       };
-      nixosModules.default = import ./nix/xmonad-session;
       packages = rec {
         default = xmobar-app;
         xmobar-app = pkgs.haskellPackages.xmobar-app;
@@ -97,5 +96,15 @@
       checks = {
         inherit pre-commit-check;
       };
-    });
+    })
+    // {
+      nixosModules.default = {...}: {
+        imports = [
+          ./nix/xmonad-session
+        ];
+        nixpkgs.overlays = [
+          overlay
+        ];
+      };
+    };
 }
