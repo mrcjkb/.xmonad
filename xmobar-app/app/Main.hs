@@ -1,7 +1,7 @@
 module Main (main) where
 
-import Xmobar
 import Config (myConfig)
+import Xmobar
 
 main :: IO ()
 main = xmobar myConfig

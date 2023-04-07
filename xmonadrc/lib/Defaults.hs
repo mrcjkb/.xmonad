@@ -38,11 +38,11 @@ myModMask = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces :: [String]
-myWorkspaces = map show ([1..9] :: [Integer])
+myWorkspaces = map show ([1 .. 9] :: [Integer])
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor :: String
-myNormalBorderColor  = "#212121"
+myNormalBorderColor = "#212121"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#B480D6"
 

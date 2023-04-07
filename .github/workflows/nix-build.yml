@@ -9,19 +9,27 @@ on:
   push:
 
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.0.2
+    - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v20
-    - uses: cachix/cachix-action@v10
+    - uses: cachix/cachix-action@v12
       with:
         name: mrcjkb
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - name: add haskell.nix pub keys
-      run: sed -i '/^trusted-public-keys =/ s/$/ hydra.iohk.io:f\/Ea+s+dFdN+3Y\/G+FDgSq+a5NEWhJGzdjvKNGv0\/EQ=/' ~/.config/nix/nix.conf
-    - name: add haskell.nix substituters
-      run: sed -i '/^substituters =/ s/$/ https:\/\/cache.iog.io/' ~/.config/nix/nix.conf
+    - name: build 
+      run: nix flake check -L
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v20
+    - uses: cachix/cachix-action@v12
+      with:
+        name: mrcjkb
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
     - name: build 
       run: nix build -L
