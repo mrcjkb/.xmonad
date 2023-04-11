@@ -24,6 +24,7 @@ withStatusBars = dynamicSBs barSpawner
 barSpawner :: ScreenId -> IO StatusBarConfig
 barSpawner = pure . xmobar
   where
+    pp :: PP
     pp =
       def
         { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
@@ -31,4 +32,5 @@ barSpawner = pure . xmobar
         , ppVisible = wrap "(" ")"
         , ppUrgent = xmobarColor "#FF5370" "#E6B455"
         }
+    xmobar :: ScreenId -> StatusBarConfig
     xmobar screenId = statusBarPropTo ("_XMONAD_LOG_" <> show (screenId + 1)) ("xmobar -x " <> show screenId) $ pure pp
