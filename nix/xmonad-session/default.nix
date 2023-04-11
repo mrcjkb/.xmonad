@@ -94,6 +94,7 @@
         brightnessctl # Brightness control CLI
         scrot # A command-line screen capture utility
         pamixer # PulseAudio volume mixer
+        pango # Rendering library used by xmobar
         #### NUR packages ###
         # (from mrcpkgs NUR package, managed by Marc Jakobi)
         # XXX Note: It may be necessary to update the nur tarball if a package is not found.
