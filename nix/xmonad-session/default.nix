@@ -8,6 +8,10 @@
       source = ../../xmonadrc;
       recursive = true;
     };
+    xdg.configFile."xmobar" = {
+      source = ../../xmobar-app;
+      recursive = true;
+    };
     xdg.configFile."rofi" = {
       source = ../../configs/rofi/.;
       recursive = true;
@@ -78,7 +82,7 @@
   environment = {
     systemPackages =
       (with pkgs.haskellPackages; [
-        xmobar-app
+        xmobar
         greenclip # Clipboard manager for use with rofi
       ])
       ++ (with pkgs; [

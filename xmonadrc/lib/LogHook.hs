@@ -31,4 +31,4 @@ barSpawner = pure . xmobar
         , ppVisible = wrap "(" ")"
         , ppUrgent = xmobarColor "#FF5370" "#E6B455"
         }
-    xmobar screenId = statusBarPropTo ("_XMONAD_LOG_" <> show (screenId + 1)) ("xmobar-app -x " <> show screenId) $ pure pp
+    xmobar screenId = statusBarPropTo ("_XMONAD_LOG_" <> show (screenId + 1)) ("xmobar -x " <> show screenId) $ pure pp
