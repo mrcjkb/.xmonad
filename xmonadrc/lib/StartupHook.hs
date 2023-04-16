@@ -21,7 +21,6 @@ myStartupHook :: X ()
 myStartupHook =
   do
     spawn "xsetroot -cursor_name left_ptr"
-    -- spawn "pscircle --output=/tmp/%F_%T_$wx$h.png --background-color=202020 --dot-color-min=BC96DA --link-color-min=555555 && feh --bg-tile /tmp/%F_%T_$wx$h.png"
     spawn "autorandr -c"
     spawnOnce "greenclip daemon"
     spawnOnce "nextcloud-wrapper" -- Also spawns keepassxc
