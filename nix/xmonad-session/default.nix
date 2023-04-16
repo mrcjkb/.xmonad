@@ -54,11 +54,13 @@
         xmonad = {
           enable = true;
           enableContribAndExtras = true;
-          extraPackages = hpkgs: [
-            hpkgs.xmonad
-            hpkgs.xmonad-contrib
-            hpkgs.xmonad-extras
-          ];
+          extraPackages = hpkgs:
+            with hpkgs; [
+              xmonad
+              xmonad-contrib
+              xmonad-extras
+              xmobar-app
+            ];
         };
       };
     };
