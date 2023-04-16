@@ -62,7 +62,6 @@
             hpkgs.xmonad
             hpkgs.xmonad-contrib
             hpkgs.xmonad-extras
-            hpkgs.xmobar
           ];
         };
       };
@@ -83,6 +82,7 @@
   environment = {
     systemPackages =
       (with pkgs.haskellPackages; [
+        xmobar
         greenclip # Clipboard manager for use with rofi
       ])
       ++ (with pkgs; [
