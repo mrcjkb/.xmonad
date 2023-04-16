@@ -13,6 +13,7 @@
       recursive = true;
     };
     xdg.configFile."rofi" = {
+      # TODO: use home-manager module
       source = ../../configs/rofi/.;
       recursive = true;
     };
@@ -74,7 +75,6 @@
       fade = false;
       shadow = false;
     };
-    # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
   };
   programs = {
@@ -91,7 +91,6 @@
         dmenu # Expected by xmonad
         gxmessage # Used by xmonad to show help
         xorg.xkill # Kill X windows with the cursor
-        # pscircle # Generate process tree visualizations
         bat
         pavucontrol # PulseAudio volume control UI
         pulseaudio
@@ -99,10 +98,10 @@
         scrot # A command-line screen capture utility
         pamixer # PulseAudio volume mixer
         pango # Rendering library used by xmobar
-        #### NUR packages ###
-        # (from mrcpkgs NUR package, managed by Marc Jakobi)
-        # XXX Note: It may be necessary to update the nur tarball if a package is not found.
-        nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
+      ])
+      ++ (with pkgs.nur; [
+        # nextcloud-client wrapper that waits for KeePass Secret Service Integration
+        repos.mrcpkgs.nextcloud-no-de
       ]);
   };
 }
