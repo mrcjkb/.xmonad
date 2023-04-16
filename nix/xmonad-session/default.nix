@@ -8,10 +8,6 @@
       source = ../../xmonadrc;
       recursive = true;
     };
-    xdg.configFile."xmobar" = {
-      source = ../../xmobar-app;
-      recursive = true;
-    };
     xdg.configFile."rofi" = {
       # TODO: use home-manager module
       source = ../../configs/rofi/.;
@@ -82,7 +78,7 @@
   environment = {
     systemPackages =
       (with pkgs.haskellPackages; [
-        xmobar
+        xmobar-app
         greenclip # Clipboard manager for use with rofi
       ])
       ++ (with pkgs; [

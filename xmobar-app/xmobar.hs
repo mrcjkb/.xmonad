@@ -4,4 +4,4 @@ import Config (myConfig)
 import Xmobar
 
 main :: IO ()
-main = xmobar myConfig
+main = configFromArgs myConfig >>= xmobar
