@@ -14,7 +14,10 @@
       recursive = true;
     };
     programs = {
-      rofi.enable = true;
+      rofi = {
+        package = pkgs.unstable.rofi;
+        enable = true;
+      };
     };
     services = {
       dunst = {
@@ -83,7 +86,7 @@
         xmobar-app
         greenclip # Clipboard manager for use with rofi
       ])
-      ++ (with pkgs; [
+      ++ (with pkgs.unstable; [
         ranger # TUI file browser
         alacritty
         dmenu # Expected by xmonad
