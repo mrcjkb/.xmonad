@@ -22,6 +22,8 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
   M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    , -- cycle power profile (tuxedo "turbo" button)
+      ((modm .|. mod1Mask, xK_F6), spawn "tailor profile cycle -n")
     , -- launch nautilus
       ((modm .|. shiftMask, xK_n), spawn myFileManager)
     , -- launch neovide
