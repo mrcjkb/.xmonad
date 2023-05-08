@@ -54,7 +54,7 @@ mkConfig = do
               Weather
                 "LSZH"
                 [ "--template"
-                , "<station>: <fc=#E6B455><tempC> °C</fc> <skyCondition> <fc=#6E98EB><rh> \58227</fc>"
+                , "<fc=#E6B455><tempC> °C</fc> <skyCondition> <fc=#6E98EB><rh> \58227</fc>"
                 ]
                 36000
           , -- XMonad logs
