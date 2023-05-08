@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Xmobar
+import Xmobar (configFromArgs, xmobar)
 import Xmobar.Config (myConfig)
 
 main :: IO ()
