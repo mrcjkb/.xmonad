@@ -2,6 +2,7 @@
 
 module Xmobar.Plugin.VolumeBar (VolumeBar (..)) where
 
+import Data.List (isInfixOf)
 import System.Process (readProcess)
 import Xmobar
 
@@ -12,15 +13,21 @@ instance Exec VolumeBar where
   alias VolumeBar = "volbar"
   rate VolumeBar = 5
   run VolumeBar = do
-    volume <- parse <$> readProcess "pamixer" ["--get-volume"] []
-    pure $ slider volume 10 setVolumeCmd "\62532" "·"
+    muteStatus <- readProcess "pamixer" ["--get-mute"] []
+    if "true" `isInfixOf` muteStatus
+      then pure $ wrapAction "pamixer --unmute" "\60196"
+      else getVolume
     where
       parse v = read (takeWhile (/= '%') v) :: Int
       setVolumeCmd v = "pamixer --set-volume " ++ show (10 * v)
+      getVolume = do
+        volume <- parse <$> readProcess "pamixer" ["--get-volume"] []
+        pure $ slider volume 10 setVolumeCmd "\62532" "·"
 
 slider :: Int -> Int -> (Int -> String) -> String -> String -> String
-slider value barWidth mkSetVolumeCmd filledSymbol emptySymbol = wrap "\60196 " " \60277" bar
+slider value barWidth mkSetVolumeCmd filledSymbol emptySymbol = wrap mute " \60277" bar
   where
+    mute = wrapAction "pamixer --mute" "\60196 "
     percentage :: Double = fromIntegral value / 100
 
     filledSize = ceiling (fromIntegral barWidth * percentage)
@@ -31,10 +38,10 @@ slider value barWidth mkSetVolumeCmd filledSymbol emptySymbol = wrap "\60196 " "
         then filledSymbol
         else emptySymbol
 
-    bar = concat [action (mkSetVolumeCmd i) (mkSymbol i) | i <- [0 .. barWidth - 1]]
+    bar = mconcat [wrapAction (mkSetVolumeCmd i) (mkSymbol i) | i <- [0 .. barWidth - 1]]
 
-    wrap :: String -> String -> String -> String
-    wrap a1 a2 b = a1 <> b <> a2
+wrap :: String -> String -> String -> String
+wrap a1 a2 b = a1 <> b <> a2
 
-    action :: String -> String -> String
-    action command = wrap ("<action=" <> command <> ">") "</action>"
+wrapAction :: String -> String -> String
+wrapAction command = wrap ("<action=" <> command <> ">") "</action>"
