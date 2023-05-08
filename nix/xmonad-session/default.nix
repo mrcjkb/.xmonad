@@ -62,7 +62,6 @@
               xmonad
               xmonad-contrib
               xmonad-extras
-              xmobar-app
             ];
         };
       };
