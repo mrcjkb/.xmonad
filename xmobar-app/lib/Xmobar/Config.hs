@@ -9,7 +9,7 @@ myConfig :: Config
 myConfig =
   defaultConfig
     { -- appearance
-      font = "JetBrains Mono Nerd Font Mono Bold 16"
+      font = "JetBrains Mono Nerd Font Mono Bold 14"
     , bgColor = "#212121"
     , fgColor = "white"
     , position = TopH 30
@@ -20,7 +20,7 @@ myConfig =
       -- layout
       sepChar = "%" -- delineator between plugin names and straight text
     , alignSep = "}{" -- separator between left-right alignment
-    , template = " \62227 \57533 \59255 \57533 %XMonadLog% }{ %battery% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %kbd% "
+    , template = " \62227 \57533 \59255 \57533 %XMonadLog% }{ %battery% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %volbar% \57533 %kbd% "
     , -- general behavior
       lowerOnStart = True -- send to bottom of window stack on start
     , hideOnStart = False -- start with window unmapped (hidden)
