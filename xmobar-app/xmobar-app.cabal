@@ -9,9 +9,11 @@ cabal-version: >= 1.10
     
 library xmobar-lib
   exposed-modules:
-    Config
+    Xmobar.Config
+  other-modules:
+    Xmobar.Plugin.VolumeBar
   hs-source-dirs: lib
-  ghc-options: -Wall -Werror -rtsopts -with-rtsopts=-V0 -threaded
+  ghc-options: -Wall -Werror -with-rtsopts=-V0 -threaded
   build-depends: base >= 4.7
     , xmobar
     , process

@@ -1,7 +1,7 @@
 module Main (main) where
 
-import Config (myConfig)
 import Xmobar
+import Xmobar.Config (myConfig)
 
 main :: IO ()
 main = configFromArgs myConfig >>= xmobar

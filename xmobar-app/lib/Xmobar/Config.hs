@@ -1,6 +1,6 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Config (myConfig) where
+module Xmobar.Config (myConfig) where
 
 import Xmobar
 import Xmobar.Plugin.VolumeBar
@@ -53,8 +53,8 @@ myConfig =
               36000
         , -- XMonad logs
           Run XMonadLog
-        , Run $ Volume "default" "Master" [] 10
-        , -- network activity monitor (dynamic interface resolution)
+        , -- , Run $ Volume "default" "Master" [] 10
+          -- network activity monitor (dynamic interface resolution)
           Run $
             DynNetwork
               [ "--template"
