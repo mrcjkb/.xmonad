@@ -91,9 +91,7 @@
         dmenu # Expected by xmonad
         gxmessage # Used by xmonad to show help
         xorg.xkill # Kill X windows with the cursor
-        bat
         pavucontrol # PulseAudio volume control UI
-        pulseaudio
         brightnessctl # Brightness control CLI
         scrot # A command-line screen capture utility
         pamixer # PulseAudio volume mixer
