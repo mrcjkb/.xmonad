@@ -24,7 +24,6 @@ myStartupHook =
     spawn "autorandr -c"
     spawnOnce "greenclip daemon"
     spawnOnce "nextcloud-wrapper" -- Also spawns keepassxc
-    spawnOnce "bat cache --build"
     setWMName "LG3D"
     >> addEWMHFullscreen
 
