@@ -54,7 +54,7 @@ mkConfig = do
               Weather
                 "LSZH"
                 [ "--template"
-                , "<fc=#E6B455><tempC> °C</fc> <skyCondition> <fc=#6E98EB><rh> \58227</fc>"
+                , "<fc=#E6B455><tempC> °C</fc> <skyCondition> <fc=#6E98EB><rh> \58227</fc>" -- 
                 ]
                 36000
           , -- XMonad logs
@@ -64,7 +64,7 @@ mkConfig = do
             Run $
               DynNetwork
                 [ "--template"
-                , "<dev>: \60064<tx> kB/s \60061<rx> kB/s"
+                , "<dev>: \60065<tx> kB/s \60058<rx> kB/s" --  
                 , "--Low"
                 , "1000" -- units: B/s
                 , "--High"
@@ -99,7 +99,7 @@ mkConfig = do
             Run $
               Memory
                 [ "--template"
-                , "\63578 <usedratio> %"
+                , "\983899 <usedratio> %" -- 󰍛
                 , "--Low"
                 , "20" -- units: %
                 , "--High"
@@ -131,12 +131,12 @@ mkConfig = do
                 -- discharging status
                 , "-o"
                 , "\62845 <left>% (<timeleft>)"
-                , -- AC "on" status, charging 
+                , -- AC "on" status, charging 󰂄
                   "-O"
-                , "<fc=" <> warnColour <> ">\62851</fc>"
-                , -- charged status 
+                , "<fc=" <> warnColour <> ">\983172</fc>"
+                , -- charged status 󰁹
                   "-i"
-                , "<fc=" <> okColour <> ">\62840</fc>"
+                , "<fc=" <> okColour <> ">\983161</fc>"
                 ]
                 50
           , Run profile
