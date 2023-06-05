@@ -96,6 +96,7 @@
         scrot # A command-line screen capture utility
         pamixer # PulseAudio volume mixer
         pango # Rendering library used by xmobar
+        bat
       ])
       ++ (with pkgs.nur; [
         # nextcloud-client wrapper that waits for KeePass Secret Service Integration
