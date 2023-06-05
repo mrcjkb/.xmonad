@@ -97,10 +97,8 @@
         pamixer # PulseAudio volume mixer
         pango # Rendering library used by xmobar
         bat
-        firefox
         brave
-        # Needed by brave
-        coreutils
+        firefox
       ])
       ++ (with pkgs.nur; [
         # nextcloud-client wrapper that waits for KeePass Secret Service Integration
