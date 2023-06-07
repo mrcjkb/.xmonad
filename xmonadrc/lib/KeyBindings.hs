@@ -12,6 +12,7 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import qualified XMonad.StackSet as W
 import XMonad.Util.Paste
+import XMonad.Util.Run
 
 import Defaults
 
@@ -21,18 +22,18 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig{XMonad.modMask = modm}) =
   M.fromList $
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm .|. shiftMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
     , -- cycle power profile (tuxedo "turbo" button)
-      ((modm .|. mod1Mask, xK_F6), spawn "tailor profile cycle -n")
+      ((modm .|. mod1Mask, xK_F6), safeSpawn "tailor" ["profile", "cycle", "-n"])
     , -- launch nautilus
-      ((modm .|. shiftMask, xK_n), spawn myFileManager)
+      ((modm .|. shiftMask, xK_n), safeSpawn myFileManager [])
     , -- launch neovide
-      ((modm .|. mod1Mask, xK_n), spawn "neovide")
+      ((modm .|. mod1Mask, xK_n), safeSpawn "neovide" [])
     , -- launch browser
-      ((modm .|. shiftMask, xK_b), spawn myBrowser)
+      ((modm .|. shiftMask, xK_b), safeSpawn myBrowser [])
     , -- launch rofi and dashboard
-      ((modm, xK_o), spawn "rofi -show drun -theme vapor.rasi")
-    , ((modm .|. shiftMask, xK_o), spawn "rofi -show run -theme vapor.rasi")
+      ((modm, xK_o), safeSpawn "rofi" ["-show", "drun", "-theme", "vapor.rasi"])
+    , ((modm .|. shiftMask, xK_o), safeSpawn "rofi" ["-show", "run", "-theme", "vapor.rasi"])
     , ((modm .|. mod1Mask, xK_o), spawn "alacritty -e tiko-vpn-reconnect")
     , ((modm .|. mod1Mask, xK_x), spawn "xkill")
     , ((modm .|. mod1Mask, xK_k), spawn "inkview $HOME/git/github/mrcjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
