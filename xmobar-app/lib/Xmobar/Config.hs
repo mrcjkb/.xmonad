@@ -128,9 +128,9 @@ mkConfig = do
                 , "--high"
                 , okColour
                 , "--" -- battery specific options
-                -- discharging status
+                -- discharging status 󰁿
                 , "-o"
-                , "\62845 <left>% (<timeleft>)"
+                , "\983167 <left>% (<timeleft>)"
                 , -- AC "on" status, charging 󰂄
                   "-O"
                 , "<fc=" <> warnColour <> ">\983172</fc>"
