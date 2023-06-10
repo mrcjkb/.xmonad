@@ -19,22 +19,25 @@ myLogHook :: X ()
 myLogHook = return ()
 
 withStatusBars :: LayoutClass l Window => XConfig l -> XConfig l
-withStatusBars = dynamicSBs barSpawner
+withStatusBars = withSB $ statusBarPropTo "_XMONAD_LOG_1" "xmobar -x 0" (pure pp)
 
-barSpawner :: ScreenId -> IO StatusBarConfig
-barSpawner = pure . xmobar
-  where
-    pp :: PP
-    pp =
-      def
-        { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
-        , ppTitle = xmobarColor "#B480D6" "" . shorten 40
-        , ppVisible = wrap "(" ")"
-        , ppUrgent = xmobarColor "#FF5370" "#E6B455"
-        }
-    xmobar :: ScreenId -> StatusBarConfig
-    xmobar screenId =
-      statusBarPropTo
-        ("_XMONAD_LOG_" <> show (screenId + 1))
-        ("xmobar-app -x " <> show screenId)
-        $ pure pp
+-- withStatusBars = dynamicSBs barSpawner
+
+-- barSpawner :: ScreenId -> IO StatusBarConfig
+-- barSpawner = pure . xmobar
+--   where
+--     xmobar :: ScreenId -> StatusBarConfig
+--     xmobar screenId =
+--       statusBarPropTo
+--         ("_XMONAD_LOG_" <> show (screenId + 1))
+--         ("xmobar-app -x " <> show screenId)
+--         $ pure pp
+
+pp :: PP
+pp =
+  def
+    { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
+    , ppTitle = xmobarColor "#B480D6" "" . shorten 40
+    , ppVisible = wrap "(" ")"
+    , ppUrgent = xmobarColor "#FF5370" "#E6B455"
+    }
