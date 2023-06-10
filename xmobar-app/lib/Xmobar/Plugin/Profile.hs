@@ -24,12 +24,10 @@ instance Exec Profile where
         _ -> activeProfile
 
 mkProfile :: IO (String, Profile)
-mkProfile = pure (" \984261 %profile% ", TuxedoProfile)
-
--- mkProfile = do
---   hostName <- readProcess "hostname" [] []
---   pure $
---     if "nixos-tux" `isInfixOf` hostName
---       -- 󰓅
---       then (" \984261 %profile% ", TuxedoProfile)
---       else (" ", UnknownProfile)
+mkProfile = do
+  hostName <- readProcess "hostname" [] []
+  pure $
+    if "nixos-tux" `isInfixOf` hostName
+      then -- 󰓅
+        (" \984261 %profile% ", TuxedoProfile)
+      else (" ", UnknownProfile)
