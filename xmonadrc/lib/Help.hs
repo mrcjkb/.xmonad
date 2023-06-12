@@ -21,7 +21,6 @@ help =
     , "mod-n            Resize/refresh viewed windows to the correct size"
     , "mod-Shift-b      Launch browser: " <> myBrowser
     , "mod-Shift-n      Launch file manager: " <> myFileManager
-    , "mod-b            Kill xmobar"
     , "mod-v            Paste selection"
     , -- , "mod-s            Enable side bar"
       -- , "mod-Shift-s      Disable side bar"
