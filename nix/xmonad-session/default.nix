@@ -15,7 +15,6 @@
     };
     programs = {
       rofi = {
-        package = pkgs.unstable.rofi;
         enable = true;
       };
     };
@@ -85,7 +84,7 @@
         xmobar-app
         greenclip # Clipboard manager for use with rofi
       ])
-      ++ (with pkgs.unstable; [
+      ++ (with pkgs; [
         ranger # TUI file browser
         alacritty
         dmenu # Expected by xmonad
