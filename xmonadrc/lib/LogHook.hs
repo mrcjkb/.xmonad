@@ -33,7 +33,7 @@ barSpawner = pure . xmobar
         , ppUrgent = xmobarColor "#FF5370" "#E6B455"
         }
     xmobar :: ScreenId -> StatusBarConfig
-    xmobar screenId =
+    xmobar (S screenId) =
       statusBarPropTo
         ("_XMONAD_LOG_" <> show (screenId + 1))
         ("xmobar-app -x " <> show screenId)
