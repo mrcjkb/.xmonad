@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Xmobar (configFromArgs, xmobar)
+import Xmobar (xmobar)
 
 import System.Environment (getArgs)
 import Xmobar.Config (mkConfig)
@@ -8,4 +8,6 @@ import Xmobar.Config (mkConfig)
 main :: IO ()
 main = do
   print =<< getArgs
-  xmobar =<< configFromArgs =<< mkConfig
+  xmobar =<< mkConfig
+
+-- xmobar =<< configFromArgs =<< mkConfig
