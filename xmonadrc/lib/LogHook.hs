@@ -31,6 +31,7 @@ barSpawner = pure . xmobar
         , ppTitle = xmobarColor "#B480D6" "" . shorten 40
         , ppVisible = wrap "(" ")"
         , ppUrgent = xmobarColor "#FF5370" "#E6B455"
+        , ppSep = "\57533"
         }
     xmobar :: ScreenId -> StatusBarConfig
     xmobar (S screenId) =
