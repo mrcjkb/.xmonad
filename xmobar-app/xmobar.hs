@@ -1,9 +1,11 @@
 module Main (main) where
 
 import Xmobar (configFromArgs, xmobar)
+
+import System.Environment (getArgs)
 import Xmobar.Config (mkConfig)
 
 main :: IO ()
 main = do
-  cfg <- mkConfig
-  configFromArgs cfg >>= xmobar
+  print =<< getArgs
+  xmobar =<< configFromArgs =<< mkConfig
