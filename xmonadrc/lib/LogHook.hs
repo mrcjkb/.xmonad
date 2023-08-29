@@ -35,6 +35,6 @@ barSpawner = pure . xmobar
     xmobar :: ScreenId -> StatusBarConfig
     xmobar (S screenId) =
       statusBarPropTo
-        ("_XMONAD_LOG_" <> show (screenId + 1))
+        "_XMONAD_LOG"
         ("xmobar-app -x " <> show screenId)
         $ pure pp
