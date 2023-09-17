@@ -18,7 +18,7 @@ import XMonad.Hooks.StatusBar.PP
 myLogHook :: X ()
 myLogHook = return ()
 
-withStatusBars :: LayoutClass l Window => XConfig l -> XConfig l
+withStatusBars :: (LayoutClass l Window) => XConfig l -> XConfig l
 withStatusBars = dynamicSBs barSpawner
 
 barSpawner :: ScreenId -> IO StatusBarConfig
