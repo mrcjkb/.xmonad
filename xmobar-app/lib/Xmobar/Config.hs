@@ -26,7 +26,7 @@ mkConfig = do
       , template =
           " \62227 \57533 \59255 \57533 %XMonadLog% \57533 }{ %battery%"
             <> profileTemplate
-            <> "\57533 %memory% \57533 %dynnetwork% \57533 %LSZH% \57533 %date% \57533 %volbar% \57533 %kbd% "
+            <> "\57533 %date% \57533 %volbar% \57533 %kbd% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
       , -- general behavior
         lowerOnStart = True -- send to bottom of window stack on start
       , hideOnStart = False -- start with window unmapped (hidden)
