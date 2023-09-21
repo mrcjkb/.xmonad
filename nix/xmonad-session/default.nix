@@ -92,7 +92,7 @@
         xorg.xkill # Kill X windows with the cursor
         pavucontrol # PulseAudio volume control UI
         brightnessctl # Brightness control CLI
-        scrot # A command-line screen capture utility
+        flameshot # A command-line screen capture utility
         pamixer # PulseAudio volume mixer
         pango # Rendering library used by xmobar
         bat

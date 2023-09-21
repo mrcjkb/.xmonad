@@ -52,8 +52,8 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl s +10%")
     , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 10-%")
     , -- Screenshot
-      ((0, xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'")
-    , ((modm, xK_Print), spawn "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'")
+      ((0, xK_Print), spawn "flameshot gui")
+    , ((modm, xK_Print), spawn "flameshot screen")
     , -- My Stuff
       ((modm, xK_b), killAllStatusBars)
     , ((modm, xK_v), pasteSelection)
