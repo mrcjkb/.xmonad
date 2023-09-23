@@ -1,4 +1,4 @@
-# My XMonad config
+# My xmonad & xmobar configs
 
 [![Nix build](https://github.com/MrcJkb/.xmonad/actions/workflows/nix-build.yml/badge.svg)](https://github.com/MrcJkb/.xmonad/actions/workflows/nix-build.yml)
 
