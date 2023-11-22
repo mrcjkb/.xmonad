@@ -94,7 +94,7 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ((modm, xK_comma), sendMessage (IncMasterN 1))
     , -- Deincrement the number of windows in the master area
       ((modm, xK_period), sendMessage (IncMasterN (-1)))
-    , ((modm .|. controlMask, xK_plus), sendMessage Magnifier.MagnifyMore)
+    , ((modm .|. controlMask, xK_equal), sendMessage Magnifier.MagnifyMore)
     , ((modm .|. controlMask, xK_minus), sendMessage Magnifier.MagnifyLess)
     , ((modm .|. controlMask, xK_o), sendMessage Magnifier.ToggleOff)
     , ((modm .|. controlMask .|. shiftMask, xK_o), sendMessage Magnifier.ToggleOn)
