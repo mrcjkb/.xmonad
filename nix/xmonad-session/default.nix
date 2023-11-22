@@ -98,7 +98,7 @@
         bat
         brave
         firefox
-        dzen # Contains icons
+        dzen2 # Contains icons
       ])
       ++ (with pkgs.nur; [
         # nextcloud-client wrapper that waits for KeePass Secret Service Integration
