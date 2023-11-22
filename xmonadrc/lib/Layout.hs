@@ -57,8 +57,8 @@ myLayoutHook =
     delta = 3 / 100
 
 ppLayoutOverride :: String -> String
-ppLayoutOverride "Spacing ReflectX Tall" = "|-| |"
-ppLayoutOverride "Spacing ReflectX Mirror Tall" = "| |-|"
+ppLayoutOverride "Spacing Magnifier ReflectX Tall" = "|-| |"
+ppLayoutOverride "Spacing Magnifier Mirror Tall" = "|-.-|"
 ppLayoutOverride "Spacing Full" = "| |"
-ppLayoutOverride "Spacing ThreeColMid" = "| |  | |"
+ppLayoutOverride "Spacing Magnifier ThreeColMid" = "|-| |-|"
 ppLayoutOverride layout = layout
