@@ -60,5 +60,5 @@ ppLayoutOverride :: String -> String
 ppLayoutOverride "Spacing Magnifier ReflectX Tall" = "|-| |"
 ppLayoutOverride "Spacing Magnifier Mirror Tall" = "|-.-|"
 ppLayoutOverride "Spacing Full" = "| |"
-ppLayoutOverride "Spacing Magnifier ThreeColMid" = "|-| |-|"
+ppLayoutOverride "Spacing Magnifier ThreeCol" = "|-| |-|"
 ppLayoutOverride layout = layout
