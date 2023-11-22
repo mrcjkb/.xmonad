@@ -8,6 +8,7 @@ import XMonad
 import XMonad.Actions.Search
 import XMonad.Hooks.StatusBar
 import XMonad.Layout.Gaps
+import qualified XMonad.Layout.Magnifier as Magnifier
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import qualified XMonad.StackSet as W
@@ -93,6 +94,11 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ((modm, xK_comma), sendMessage (IncMasterN 1))
     , -- Deincrement the number of windows in the master area
       ((modm, xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm .|. controlMask, xK_plus), sendMessage Magnifier.MagnifyMore)
+    , ((modm .|. controlMask, xK_minus), sendMessage Magnifier.MagnifyLess)
+    , ((modm .|. controlMask, xK_o), sendMessage Magnifier.ToggleOff)
+    , ((modm .|. controlMask .|. shiftMask, xK_o), sendMessage Magnifier.ToggleOn)
+    , ((modm .|. controlMask, xK_m), sendMessage Magnifier.Toggle)
     , -- Toggle the status bar gap
       -- Use this binding with avoidStruts from Hooks.ManageDocks.
       -- See also the statusBar function from Hooks.DynamicLog.

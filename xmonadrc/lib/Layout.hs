@@ -3,8 +3,10 @@
 module Layout (myLayoutHook) where
 
 import XMonad
+import XMonad.Core (LayoutClass)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Gaps
+import XMonad.Layout.Magnifier
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
@@ -33,12 +35,12 @@ myLayoutHook =
       smartBorders $
         mkToggle (NOBORDERS ?? FULL ?? EOT) $
           avoidStruts
-            ( reflectHoriz tiled
-                ||| Mirror tiled
+            ( magnifier (reflectHoriz tiled)
+                ||| magnifier (Mirror tiled)
                 ||| Full
                 -- large master window in the center. Windows tile to the left and right
                 -- (for ultra wide displays)
-                ||| ThreeColMid 1 (3 / 100) (3 / 7)
+                ||| magnifier (ThreeColMid 1 (3 / 100) (3 / 7))
             )
     -- default tiling algorithm partitions the screen into two panes
     tiled = Tall nmaster delta ratio
