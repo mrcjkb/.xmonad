@@ -38,11 +38,14 @@ myLayoutHook =
         mkToggle (NOBORDERS ?? FULL ?? EOT) $
           avoidStruts
             ( magnifier (reflectHoriz tiled)
+                ||| reflectHoriz tiled
                 ||| magnifier (Mirror tiled)
+                ||| Mirror tiled
                 ||| Full
                 -- large master window in the center. Windows tile to the left and right
                 -- (for ultra wide displays)
                 ||| magnifier (ThreeColMid 1 (3 / 100) (3 / 7))
+                ||| ThreeColMid 1 (3 / 100) (3 / 7)
             )
     -- default tiling algorithm partitions the screen into two panes
     tiled = Tall nmaster delta ratio
@@ -57,8 +60,11 @@ myLayoutHook =
     delta = 3 / 100
 
 ppLayoutOverride :: String -> String
-ppLayoutOverride "Spacing Magnifier ReflectX Tall" = "|-| |"
-ppLayoutOverride "Spacing Magnifier Mirror Tall" = "|-.-|"
+ppLayoutOverride "Spacing Magnifier ReflectX Tall" = "|-|\983881|" -- 󰍉
+ppLayoutOverride "Spacing ReflectX Tall" = "|-| |"
+ppLayoutOverride "Spacing Magnifier Mirror Tall" = "|\983881.-|"
+ppLayoutOverride "Spacing Mirror Tall" = "|-.-|"
 ppLayoutOverride "Spacing Full" = "| |"
-ppLayoutOverride "Spacing Magnifier ThreeCol" = "|-| |-|"
+ppLayoutOverride "Spacing Magnifier ThreeCol" = "|-|\983881|-|"
+ppLayoutOverride "Spacing ThreeCol" = "|-| |-|"
 ppLayoutOverride layout = layout
