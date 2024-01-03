@@ -37,15 +37,15 @@ myLayoutHook =
       smartBorders $
         mkToggle (NOBORDERS ?? FULL ?? EOT) $
           avoidStruts
-            ( magnifier (reflectHoriz tiled)
-                ||| reflectHoriz tiled
-                ||| magnifier (Mirror tiled)
+            ( reflectHoriz tiled
+                ||| magnifier (reflectHoriz tiled)
                 ||| Mirror tiled
+                ||| magnifier (Mirror tiled)
                 ||| Full
                 -- large master window in the center. Windows tile to the left and right
                 -- (for ultra wide displays)
-                ||| magnifier (ThreeColMid 1 (3 / 100) (3 / 7))
                 ||| ThreeColMid 1 (3 / 100) (3 / 7)
+                ||| magnifier (ThreeColMid 1 (3 / 100) (3 / 7))
             )
     -- default tiling algorithm partitions the screen into two panes
     tiled = Tall nmaster delta ratio
