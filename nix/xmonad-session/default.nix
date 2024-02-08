@@ -1,6 +1,6 @@
 {
   pkgs,
-  defaultUser,
+  defaultUser ? "mrcjk",
   ...
 }: {
   home-manager.users."${defaultUser}" = {
