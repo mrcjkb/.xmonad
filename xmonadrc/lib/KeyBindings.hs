@@ -1,21 +1,21 @@
 module KeyBindings where
 
-import qualified Data.Map as M
+import Defaults
 import Graphics.X11.ExtraTypes.XF86
 import Help
-import qualified WindowState as WS
 import XMonad
 import XMonad.Actions.Search
 import XMonad.Hooks.StatusBar
 import XMonad.Layout.Gaps
-import qualified XMonad.Layout.Magnifier as Magnifier
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
-import qualified XMonad.StackSet as W
 import XMonad.Util.Paste
 import XMonad.Util.Run
 
-import Defaults
+import qualified Data.Map as M
+import qualified WindowState as WS
+import qualified XMonad.Layout.Magnifier as Magnifier
+import qualified XMonad.StackSet as W
 
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -124,7 +124,9 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ++
       -- Search --
       [ ((modm .|. mod1Mask, xK_h), promptSearch def hoogle)
-      , ((modm .|. mod1Mask, xK_g), promptSearch def google)
+      , -- , ((modm .|. mod1Mask, xK_n), promptSearch def noogle)
+        -- , ((modm .|. mod1Mask, xK_p), promptSearch def nixos)
+        ((modm .|. mod1Mask, xK_g), promptSearch def google)
       ]
       ++
       --
