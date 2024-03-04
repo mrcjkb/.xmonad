@@ -32,7 +32,7 @@ addNETSupported x = withDisplay $ \dpy -> do
   a <- getAtom "ATOM"
   liftIO $ do
     sup <- join . maybeToList <$> getWindowProperty32 dpy a_NET_SUPPORTED r
-    when (fromIntegral x `notElem` sup) $
+    unless (fromIntegral x `elem` sup) $
       changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
 
 addEWMHFullscreen :: X ()
