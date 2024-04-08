@@ -1,6 +1,6 @@
 de-scrollbar:	true
 rofi.modi:		combi
-rofi.terminal:		wezterm
+rofi.terminal:		alacritty
 rofi.kb-cancel:		Escape,Alt+F1,Alt+F2
 rofi.lines:		5
 rofi.soft:		true
