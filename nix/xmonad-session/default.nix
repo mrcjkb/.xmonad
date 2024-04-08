@@ -87,6 +87,7 @@
       ++ (with pkgs; [
         ranger # TUI file browser
         alacritty
+        wezterm
         dmenu # Expected by xmonad
         gxmessage # Used by xmonad to show help
         xorg.xkill # Kill X windows with the cursor
