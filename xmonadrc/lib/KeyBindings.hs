@@ -24,6 +24,8 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
   M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
+    , ((modm .|. shiftMask, xK_w), safeSpawn "wezterm start tmux" [])
+    , ((modm .|. shiftMask, xK_a), safeSpawn "alacritty -e tmux" [])
     , -- cycle power profile (tuxedo "turbo" button)
       ((modm .|. mod1Mask, xK_F6), safeSpawn "tailor" ["profile", "cycle", "-n"])
     , -- launch nautilus
