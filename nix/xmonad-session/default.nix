@@ -30,6 +30,9 @@
   };
 
   services = {
+    displayManager = {
+      defaultSession = "none+xmonad";
+    };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -50,7 +53,6 @@
             xserver-command=X -maxbigreqsize 127
           '';
         };
-        defaultSession = "none+xmonad";
       };
       windowManager = {
         xmonad = {
