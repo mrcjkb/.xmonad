@@ -34,21 +34,21 @@ mkConfig = do
       , overrideRedirect = True -- set the Override Redirect flag (Xlib)
       , pickBroadest = False -- choose widest display (multi-monitor)
       , persistent = True -- enable/disable hiding (True = disabled)
-      , -- plugins
-        --   Numbers can be automatically colored according to their value. xmobar
-        --   decides color based on a three-tier/two-cutoff system, controlled by
-        --   command options:
-        --     --Low sets the low cutoff
-        --     --High sets the high cutoff
-        --
-        --     --low sets the color below --Low cutoff
-        --     --normal sets the color between --Low and --High cutoffs
-        --     --High sets the color above --High cutoff
-        --
-        --   The --template option controls how the plugin is displayed. Text
-        --   color can be set by enclosing in <fc></fc> tags. For more details
-        --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
-        commands =
+      -- plugins
+      --   Numbers can be automatically colored according to their value. xmobar
+      --   decides color based on a three-tier/two-cutoff system, controlled by
+      --   command options:
+      --     --Low sets the low cutoff
+      --     --High sets the high cutoff
+      --
+      --     --low sets the color below --Low cutoff
+      --     --normal sets the color between --Low and --High cutoffs
+      --     --High sets the color above --High cutoff
+      --
+      --   The --template option controls how the plugin is displayed. Text
+      --   color can be set by enclosing in <fc></fc> tags. For more details
+      --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
+      , commands =
           -- weather monitor
           [ Run $
               Weather
