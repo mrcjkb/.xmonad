@@ -26,8 +26,11 @@ mkConfig = do
       , template =
           " \62227 \57533 \59255 \57533 %XMonadLog% \57533 }{ %battery%"
             <> profileTemplate
-            <> "\57533 %date% \57533 %volbar% \57533 %kbd% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
-      , -- general behavior
+            <> "\57533 %date% \57533 %volbar% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
+      , -- , template =
+        --     " \62227 \57533 \59255 \57533 %XMonadLog% \57533 }{ %battery%"
+        --       <> "\57533 %date% \57533 %volbar% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
+        -- general behavior
         lowerOnStart = True -- send to bottom of window stack on start
       , hideOnStart = False -- start with window unmapped (hidden)
       , allDesktops = True -- show on all desktops
@@ -59,8 +62,7 @@ mkConfig = do
                 36000
           , -- XMonad logs
             Run XMonadLog
-          , -- , Run $ Volume "default" "Master" [] 10
-            -- network activity monitor (dynamic interface resolution)
+          , -- network activity monitor (dynamic interface resolution)
             Run $
               DynNetwork
                 [ "--template"
@@ -77,25 +79,7 @@ mkConfig = do
                 , criticalColour
                 ]
                 10
-          , -- cpu activity monitor
-            -- , Run $ MultiCpu       [ "--template" , "Cpu: <total> %"
-            --                        , "--Low"      , "50"         -- units: %
-            --                        , "--High"     , "85"         -- units: %
-            --                        , "--low"      , okColour
-            --                        , "--normal"   , warnColour
-            --                        , "--high"     , criticalColour
-            --                        ] 10
-
-            -- cpu core temperature monitor
-            -- , Run $ CoreTemp       [ "--template" , "Temp: <core>°C"
-            --                        , "--Low"      , "70"        -- units: °C
-            --                        , "--High"     , "80"        -- units: °C
-            --                        , "--low"      , okColour
-            --                        , "--normal"   , warnColour
-            --                        , "--high"     , criticalColour
-            --                        ] 50
-
-            -- memory usage monitor
+          , -- memory usage monitor
             Run $
               Memory
                 [ "--template"
@@ -144,12 +128,12 @@ mkConfig = do
             --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
             Run $ Date "<fc=#FFFFFF>%F (%a) %T</fc>" "date" 10
           , Run VolumeBar
-          , -- keyboard layout indicator
-            Run $
-              Kbd
-                [ ("us(altgr-intl)", "<fc=" <> okColour <> ">US(altgr-intl)</fc>")
-                , ("de(ch)", "<fc=" <> warnColour <> ">DE_CH</fc>")
-                ]
+          -- , -- keyboard layout indicator %kbd%
+          --   Run $
+          --     Kbd
+          --       [ ("us(altgr-intl)", "<fc=" <> okColour <> ">US(altgr-intl)</fc>")
+          --       , ("de(ch)", "<fc=" <> warnColour <> ">DE_CH</fc>")
+          --       ]
           ]
       }
   where
