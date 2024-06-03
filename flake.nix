@@ -73,13 +73,7 @@
           ++ (with pkgs.haskellPackages; [
             implicit-hie
           ])
-          ++ (with pre-commit-hooks.packages.${system}; [
-            hlint
-            hpack
-            fourmolu
-            cabal2nix
-            alejandra
-          ]);
+          ++ self.checks.${system}.pre-commit-check.enabledPackages;
         shellHook = ''
           ${self.checks.${system}.pre-commit-check.shellHook}
           gen-hie --cabal > hie.yaml
