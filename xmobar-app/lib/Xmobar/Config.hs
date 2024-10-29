@@ -24,7 +24,7 @@ mkConfig = do
         sepChar = "%" -- delineator between plugin names and straight text
       , alignSep = "}{" -- separator between left-right alignment
       , template =
-          " \62227 \57533 \59255 \57533 %XMonadLog% \57533 }{ %battery%"
+          " <fc=#89b4fa>\62227</fc> \57533 <fc=#cba6f7>\59255</fc> \57533 %XMonadLog% \57533 }{ %battery%"
             <> profileTemplate
             <> "\57533 %date% \57533 %volbar% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
       , -- , template =
