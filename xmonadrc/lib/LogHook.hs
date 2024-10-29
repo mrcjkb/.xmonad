@@ -28,10 +28,10 @@ barSpawner = pure . xmobar
     pp :: PP
     pp =
       def
-        { ppCurrent = xmobarColor "#E6B455" "" . wrap "[" "]"
-        , ppTitle = xmobarColor "#B480D6" "" . shorten 40
+        { ppCurrent = xmobarColor "#f9e2af" "" . wrap "[" "]"
+        , ppTitle = xmobarColor "#cba6f7" "" . shorten 40
         , ppVisible = wrap "(" ")"
-        , ppUrgent = xmobarColor "#FF5370" "#E6B455"
+        , ppUrgent = xmobarColor "#f38ba8" "#f9e2af"
         , ppSep = " \57533 "
         , ppLayout = ppLayoutOverride
         }
