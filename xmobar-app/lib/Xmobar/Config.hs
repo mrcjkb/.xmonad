@@ -13,12 +13,12 @@ mkConfig = do
     defaultConfig
       { -- appearance
         font = "JetBrains Mono Nerd Font Mono Bold 14"
-      , bgColor = "#212121"
-      , fgColor = "white"
+      , bgColor = "#202020"
+      , fgColor = "#cdd6f4"
       , position = TopH 30
       , -- , border =       BottomB
         -- , borderWidth = 0
-        -- , borderColor =  "#B480D6"
+        -- , borderColor =  "#cba6f7"
 
         -- layout
         sepChar = "%" -- delineator between plugin names and straight text
@@ -57,7 +57,7 @@ mkConfig = do
               Weather
                 "LSZH"
                 [ "--template"
-                , "<fc=#E6B455><tempC> °C</fc> <skyCondition> <fc=#6E98EB><rh> \58227</fc>" -- 
+                , "<fc=#f9e2af><tempC> °C</fc> <skyCondition> <fc=#89b4fa><rh> \58227</fc>" -- 
                 ]
                 36000
           , -- XMonad logs
@@ -126,7 +126,7 @@ mkConfig = do
           , Run profile
           , -- time and date indicator
             --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-            Run $ Date "<fc=#FFFFFF>%F (%a) %T</fc>" "date" 10
+            Run $ Date "<fc=#cdd6f4>%F (%a) %T</fc>" "date" 10
           , Run VolumeBar
           -- , -- keyboard layout indicator %kbd%
           --   Run $
@@ -137,6 +137,6 @@ mkConfig = do
           ]
       }
   where
-    criticalColour = "#FF5370"
-    warnColour = "#E6B455"
-    okColour = "#B480D6"
+    criticalColour = "#f38ba8"
+    warnColour = "#f9e2af"
+    okColour = "#cba6f7"
