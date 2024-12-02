@@ -32,11 +32,24 @@ with final.lib; let
               ];
           })
         );
+        addFontConfig = drv:
+          drv.overrideAttrs (oa: {
+            buildInputs =
+              oa.buildInputs
+              or []
+              ++ [
+                final.makeWrapper
+              ];
+            installPhase =
+              oa.installPhase
+              + ''
+                wrapProgram $out/bin/xmobar-app \
+                  --prefix FONTCONFIG_FILE : ${final.makeFontsConf {fontDirectories = [final.nerd-fonts.jetbrains-mono];}}
+              '';
+          });
       in {
-        inherit
-          xmonadrc
-          xmobar-app
-          ;
+        xmonadrc = addFontConfig xmonadrc;
+        xmobar-app = addFontConfig xmobar-app;
       }
     );
   });
