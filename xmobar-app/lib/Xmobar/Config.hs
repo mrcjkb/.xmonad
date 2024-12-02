@@ -12,7 +12,7 @@ mkConfig = do
   pure $
     defaultConfig
       { -- appearance
-        font = "JetBrains Mono Nerd Font Mono"
+        font = "JetBrains Mono Nerd Font Mono Bold 14"
       , bgColor = "#202020"
       , fgColor = "#cdd6f4"
       , position = TopH 30
