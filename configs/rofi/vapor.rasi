@@ -31,7 +31,7 @@
     active-background:           rgba ( 255, 255, 255, 100 % );
     selected-active-background:  rgba ( 82, 148, 226, 100 % );
 
-	font: "JetBrains Mono Nerd Font Mono 14";
+	font: "JetBrains Mono Nerd Font Mono";
 }
 #window {
     background-color: @background;
