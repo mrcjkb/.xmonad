@@ -104,5 +104,6 @@
           overlay
         ];
       };
+      overlays.default = overlay;
     };
 }
