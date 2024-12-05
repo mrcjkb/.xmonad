@@ -35,9 +35,6 @@
         inherit system;
         overlays = [
           overlay
-          (final: _: {
-            zen-browser = inputs.zen-browser.packages."${final.system}".default;
-          })
         ];
       };
 
@@ -96,12 +93,15 @@
       };
     })
     // {
-      nixosModules.default = {...}: {
+      nixosModules.default = {pkgs, ...}: {
         imports = [
           ./nix/xmonad-session
         ];
         nixpkgs.overlays = [
           overlay
+        ];
+        environment.systemPackages = [
+          inputs.zen-browser.packages."${pkgs.system}".default
         ];
       };
       overlays.default = overlay;
