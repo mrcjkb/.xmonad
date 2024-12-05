@@ -47,7 +47,7 @@ myFocusedBorderColor :: String
 myFocusedBorderColor = "#cba6f7"
 
 myBrowser :: String
-myBrowser = "brave"
+myBrowser = "zen"
 
 myFileManager :: String
 -- myFileManager = "wezterm start ranger"

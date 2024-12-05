@@ -8,6 +8,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:ch4og/zen-browser-flake";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +16,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     pre-commit-hooks,
@@ -34,6 +35,9 @@
         inherit system;
         overlays = [
           overlay
+          (final: _: {
+            zen-browser = inputs.zen-browser.packages."${final.system}".default;
+          })
         ];
       };
 
