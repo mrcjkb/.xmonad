@@ -1,6 +1,6 @@
 {
   pkgs ? import <nixpkgs> {system = builtins.currentSystem;},
-  mkDerivation ? pkgs.mkDerivation,
+  stdenv ? pkgs.stdenv,
   base ? pkgs.base,
   containers ? pkgs.containers,
   lib ? pkgs.lib,
@@ -8,7 +8,7 @@
   xmonad ? pkgs.xmonad,
   xmonad-contrib ? pkgs.xmonad-contrib,
 }:
-mkDerivation {
+stdenv.mkDerivation {
   pname = "xmonadrc";
   version = "1.0";
   src = ./.;
