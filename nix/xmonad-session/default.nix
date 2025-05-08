@@ -64,18 +64,6 @@ in {
           '';
         };
       };
-      windowManager = {
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-          extraPackages = hpkgs:
-            with hpkgs; [
-              xmonadrc
-              xmonad-contrib
-              xmonad-extras
-            ];
-        };
-      };
     };
     picom = {
       enable = true;
