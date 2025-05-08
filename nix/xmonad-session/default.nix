@@ -3,20 +3,7 @@
   lib,
   defaultUser ? "mrcjk",
   ...
-}: let
-  xmonadrc = pkgs.haskellPackages.xmonadrc;
-in {
-  services.xserver.windowManager = {
-    session = [
-      {
-        name = "xmonad";
-        start = ''
-          systemd-cat -t xmonad -- ${lib.getExe xmonadrc} &
-          waitPID=$!
-        '';
-      }
-    ];
-  };
+}: {
   home-manager.users."${defaultUser}" = {
     xdg.configFile."rofi" = {
       # TODO: use home-manager module
@@ -40,9 +27,6 @@ in {
   };
 
   services = {
-    displayManager = {
-      defaultSession = "none+xmonad";
-    };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -63,6 +47,18 @@ in {
             xserver-command=X -maxbigreqsize 127
           '';
         };
+        defaultSession = "none+xmonad";
+      };
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+          config = lib.readFile ../../xmonadrc/xmonad.hs;
+          extraPackages = hpkgs:
+            with hpkgs; [
+              xmonadrc
+            ];
+        };
       };
     };
     picom = {
@@ -81,7 +77,6 @@ in {
   environment = {
     systemPackages =
       (with pkgs.haskellPackages; [
-        xmonad
         xmobar-app
         greenclip # Clipboard manager for use with rofi
       ])
@@ -97,6 +92,8 @@ in {
         pamixer # PulseAudio volume mixer
         pango # Rendering library used by xmobar
         bat
+        brave
+        firefox
       ])
       ++ (with pkgs.nur; [
         # nextcloud-client wrapper that waits for KeePass Secret Service Integration
