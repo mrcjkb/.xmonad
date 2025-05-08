@@ -6,18 +6,18 @@
 }: let
   xmonadrc = pkgs.haskellPackages.xmonadrc;
 in {
+  services.xserver.windowManager = {
+    session = [
+      {
+        name = "xmonad";
+        start = ''
+          systemd-cat -t xmonad -- ${lib.getExe xmonadrc} &
+          waitPID=$!
+        '';
+      }
+    ];
+  };
   home-manager.users."${defaultUser}" = {
-    services.xserver.windowManager = {
-      session = [
-        {
-          name = "xmonad";
-          start = ''
-            systemd-cat -t xmonad -- ${lib.getExe xmonadrc} &
-            waitPID=$!
-          '';
-        }
-      ];
-    };
     xdg.configFile."rofi" = {
       # TODO: use home-manager module
       source = ../../configs/rofi/.;
