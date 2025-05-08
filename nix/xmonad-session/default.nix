@@ -1,12 +1,22 @@
 {
   pkgs,
+  lib,
   defaultUser ? "mrcjk",
   ...
-}: {
+}: let
+  xmonadrc = pkgs.haskellPackages.xmonadrc;
+in {
   home-manager.users."${defaultUser}" = {
-    xdg.configFile."xmonad" = {
-      source = ../../xmonadrc;
-      recursive = true;
+    services.xserver.windowManager = {
+      session = [
+        {
+          name = "xmonad";
+          start = ''
+            systemd-cat -t xmonad -- ${lib.getExe xmonadrc} &
+            waitPID=$!
+          '';
+        }
+      ];
     };
     xdg.configFile."rofi" = {
       # TODO: use home-manager module
@@ -60,7 +70,7 @@
           enableContribAndExtras = true;
           extraPackages = hpkgs:
             with hpkgs; [
-              xmonad
+              xmonadrc
               xmonad-contrib
               xmonad-extras
             ];
@@ -83,6 +93,7 @@
   environment = {
     systemPackages =
       (with pkgs.haskellPackages; [
+        xmonad
         xmobar-app
         greenclip # Clipboard manager for use with rofi
       ])

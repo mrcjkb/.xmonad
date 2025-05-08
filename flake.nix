@@ -87,6 +87,7 @@
       packages = rec {
         default = xmobar-app;
         xmobar-app = pkgs.haskellPackages.xmobar-app;
+        xmonadrc = pkgs.haskellPackages.xmonadrc;
       };
       checks = {
         inherit pre-commit-check;

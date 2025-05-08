@@ -43,7 +43,7 @@ with final.lib; let
             installPhase =
               oa.installPhase
               + ''
-                wrapProgram $out/bin/xmobar-app \
+                wrapProgram $out/bin/${oa.meta.mainProgram} \
                   --prefix FONTCONFIG_FILE : ${final.makeFontsConf {fontDirectories = [final.nerd-fonts.jetbrains-mono];}}
               '';
           });
