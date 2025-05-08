@@ -1,14 +1,14 @@
 {
   pkgs ? import <nixpkgs> {system = builtins.currentSystem;},
-  stdenv ? pkgs.stdenv,
-  base ? pkgs.base,
-  containers ? pkgs.containers,
   lib ? pkgs.lib,
-  X11 ? pkgs.X11,
-  xmonad ? pkgs.xmonad,
-  xmonad-contrib ? pkgs.xmonad-contrib,
+  haskellPackages ? pkgs.haskellPackages,
+  base ? haskellPackages.base,
+  containers ? haskellPackages.containers,
+  X11 ? haskellPackages.X11,
+  xmonad ? haskellPackages.xmonad,
+  xmonad-contrib ? haskellPackages.xmonad-contrib,
 }:
-stdenv.mkDerivation {
+haskellPackages.mkDerivation {
   pname = "xmonadrc";
   version = "1.0";
   src = ./.;
