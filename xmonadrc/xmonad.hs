@@ -15,7 +15,7 @@ import StartupHook
 import WindowRules
 
 main :: IO ()
-main = xmonad . fullscreenSupport . docks . ewmh $ defaults
+main = xmonad . withStatusBars . fullscreenSupport . docks . ewmh $ defaults
   where
     defaults =
       def
