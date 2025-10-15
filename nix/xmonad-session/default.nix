@@ -27,28 +27,13 @@
   };
 
   services = {
-    displayManager.defaultSession = "none+xmonad";
+    displayManager = {
+      defaultSession = "none+xmonad";
+      ly.enable = true;
+    };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
-      displayManager = {
-        lightdm = {
-          enable = true;
-          greeters.mini = {
-            enable = true;
-            user = defaultUser;
-            extraConfig = ''
-              [greeter]
-              show-password-label = false
-              [greeter-theme]
-              background-image = ""
-            '';
-          };
-          extraConfig = ''
-            xserver-command=X -maxbigreqsize 127
-          '';
-        };
-      };
       windowManager = {
         xmonad = {
           enable = true;
