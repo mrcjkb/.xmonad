@@ -32,7 +32,7 @@
       ly.enable = true;
     };
     xserver = {
-      displayMandage.startx.enable = true;
+      displayManager.startx.enable = true;
       # Enable the X11 windowing system.
       enable = true;
       windowManager = {
