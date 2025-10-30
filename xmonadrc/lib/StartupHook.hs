@@ -18,7 +18,7 @@ import Data.Maybe
 myStartupHook :: X ()
 myStartupHook =
   do
-    -- spawn "xsetroot -cursor_name left_ptr"
+    spawn "xsetroot -cursor_name left_ptr"
     spawn "autorandr -c"
     spawnOnce "greenclip daemon"
     spawnOnce "nextcloud-wrapper" -- Also spawns keepassxc
