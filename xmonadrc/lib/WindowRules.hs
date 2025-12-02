@@ -26,8 +26,9 @@ myManageHook =
     <+> manageDocks
     <+> composeAll
       [ className =? "MPlayer" --> doFloat
-      , -- , className =? "Gimp"           --> doFloat
-        resource =? "desktop_window" --> doIgnore
+      -- , className =? "Gimp"           --> doFloat
+      , className =? "keepassxc" <&&> willFloat --> doIgnore
+      , resource =? "desktop_window" --> doIgnore
       , resource =? "kdesktop" --> doIgnore
       , isFullscreen --> doFullFloat
       ]
