@@ -94,7 +94,7 @@
       };
     })
     // {
-      nixosModules.default = {stdenv, ...}: {
+      nixosModules.default = {pkgs, ...}: {
         imports = [
           ./nix/xmonad-session
         ];
@@ -102,7 +102,7 @@
           overlay
         ];
         environment.systemPackages = [
-          inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+          inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
         ];
       };
       overlays.default = overlay;
