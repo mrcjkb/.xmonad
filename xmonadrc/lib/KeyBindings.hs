@@ -37,7 +37,6 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
     , -- launch rofi and dashboard
       ((modm, xK_o), safeSpawn "rofi" ["-show", "drun", "-theme", "vapor.rasi"])
     , ((modm .|. shiftMask, xK_o), safeSpawn "rofi" ["-show", "run", "-theme", "vapor.rasi"])
-    , ((modm .|. mod1Mask, xK_o), spawn "alacritty -e tiko-vpn-reconnect")
     , ((modm .|. mod1Mask, xK_x), spawn "xkill")
     , ((modm .|. mod1Mask, xK_k), spawn "inkview $HOME/git/github/mrcjkb/keyboardio-atreus-firmware/atreus-layout-card.svg")
     , -- Toggle floating window
