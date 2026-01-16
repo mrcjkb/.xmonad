@@ -44,6 +44,9 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ((modm .|. shiftMask, xK_f), withFocused WS.toggleFloat)
     , -- Toggle fullscreen layout
       ((modm, xK_f), sendMessage $ Toggle FULL)
+    , -- warpd
+      ((modm, xK_m), spawn "warpd --oneshot --hint2")
+    , ((modm .|. shiftMask, xK_m), spawn "warpd --oneshot --grid")
     , -- Audio keys
       ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
     , ((0, xF86XK_AudioPrev), spawn "playerctl previous")
