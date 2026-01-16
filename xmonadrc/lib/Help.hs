@@ -36,7 +36,7 @@ help =
     , "mod-Shift-Tab  Move focus to the previous window"
     , "mod-j          Move focus to the next window"
     , "mod-k          Move focus to the previous window"
-    , "mod-m          Move focus to the master window"
+    -- , "mod-m          Move focus to the master window"
     , ""
     , "-- modifying the window order"
     , "mod-Return   Swap the focused window and the master window"
