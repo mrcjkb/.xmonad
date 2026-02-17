@@ -137,11 +137,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1771075042,
-        "narHash": "sha256-3+nfKxAxK41oOu8HkMSWQjQR4cs4Ev3COXSmFSL/0wg=",
+        "lastModified": 1771248413,
+        "narHash": "sha256-b5WbNauxkxvuWnCntcDMKKyHBDJBtRlWd+B4piCFBXg=",
         "owner": "mrcjkb",
         "repo": "zen-browser-flake",
-        "rev": "133b067953525a7f5cee74519177917dc9398745",
+        "rev": "2f007ca73af99b0f4df3928abf120f7c5fc76abe",
         "type": "github"
       },
       "original": {
