@@ -93,5 +93,11 @@ help =
     , ""
     , "-- Search"
     , "mod-Alt-h        Hoogle search"
+    , "mod-Alt-H        Hoogle (ners) search"
+    , "mod-Alt-f        Flora search"
+    , "mod-Alt-n        NixOS search"
+    , "mod-Alt-N        Noogle search"
+    , "mod-Alt-K        Google search"
     , "mod-Alt-g        Google search"
+    , "mod-Alt-G        GitHub search"
     ]

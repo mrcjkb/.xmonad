@@ -30,9 +30,9 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ((modm .|. mod1Mask, xK_F6), safeSpawn "tailor" ["profile", "cycle", "-n"])
     , -- launch nautilus
       ((modm .|. shiftMask, xK_n), safeSpawn myFileManager [])
-    , -- launch neovide
-      ((modm .|. mod1Mask, xK_n), safeSpawn "neovide" [])
-    , -- launch browser
+    , -- , -- launch neovide
+      --   ((modm .|. mod1Mask, xK_n), safeSpawn "neovide" [])
+      -- launch browser
       ((modm .|. shiftMask, xK_b), safeSpawn myBrowser [])
     , -- launch rofi and dashboard
       ((modm, xK_o), safeSpawn "rofi" ["-show", "drun", "-theme", "vapor.rasi"])
@@ -129,9 +129,13 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ++
       -- Search --
       [ ((modm .|. mod1Mask, xK_h), promptSearchBrowser def myBrowser hoogle)
-        -- , ((modm .|. mod1Mask, xK_n), promptSearch def noogle)
-        -- , ((modm .|. mod1Mask, xK_p), promptSearch def nixos)
+      , ((modm .|. mod1Mask, xK_H), promptSearchBrowser def myBrowser nersHoogle)
+      , ((modm .|. mod1Mask, xK_f), promptSearchBrowser def myBrowser flora)
+      , ((modm .|. mod1Mask, xK_n), promptSearchBrowser def myBrowser nixos)
+      , ((modm .|. mod1Mask, xK_N), promptSearchBrowser def myBrowser noogle)
+      , ((modm .|. mod1Mask, xK_K), promptSearchBrowser def myBrowser kagi)
       , ((modm .|. mod1Mask, xK_g), promptSearchBrowser def myBrowser google)
+      , ((modm .|. mod1Mask, xK_G), promptSearchBrowser def myBrowser github)
       ]
       ++
       --
@@ -151,3 +155,9 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       | (key, sc) <- zip [xK_w, xK_e, xK_r] [0 ..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
       ]
+
+nersHoogle :: SearchEngine
+nersHoogle = searchEngine "hoogle (ners)" "https://hoogle.ners.ch/?hoogle="
+
+kagi :: SearchEngine
+kagi = searchEngine "kagi" "https://www.kagi.com/search?q="
