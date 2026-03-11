@@ -128,10 +128,10 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ]
       ++
       -- Search --
-      [ ((modm .|. mod1Mask, xK_h), promptSearch def hoogle)
-      , -- , ((modm .|. mod1Mask, xK_n), promptSearch def noogle)
+      [ ((modm .|. mod1Mask, xK_h), promptSearchBrowser def myBrowser hoogle)
+        -- , ((modm .|. mod1Mask, xK_n), promptSearch def noogle)
         -- , ((modm .|. mod1Mask, xK_p), promptSearch def nixos)
-        ((modm .|. mod1Mask, xK_g), promptSearch def google)
+      , ((modm .|. mod1Mask, xK_g), promptSearchBrowser def myBrowser google)
       ]
       ++
       --
