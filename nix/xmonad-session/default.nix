@@ -71,7 +71,7 @@
         alacritty
         dmenu # Expected by xmonad
         gxmessage # Used by xmonad to show help
-        xorg.xkill # Kill X windows with the cursor
+        xkill # Kill X windows with the cursor
         pavucontrol # PulseAudio volume control UI
         brightnessctl # Brightness control CLI
         flameshot # A command-line screen capture utility
