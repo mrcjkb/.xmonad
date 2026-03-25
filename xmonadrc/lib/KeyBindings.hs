@@ -128,14 +128,15 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
       ]
       ++
       -- Search --
-      [ ((modm .|. mod1Mask, xK_h), promptSearchBrowser def myBrowser hoogle)
-      , ((modm .|. mod1Mask, xK_H), promptSearchBrowser def myBrowser nersHoogle)
-      , ((modm .|. mod1Mask, xK_f), promptSearchBrowser def myBrowser flora)
+      [ ((modm .|. mod1Mask, xK_h), promptSearchBrowser def myBrowser nersHoogle)
+      , -- NOTE: xk_<capital> does not work with mod1Mask
+        -- , ((modm .|. mod1Mask, xK_H), promptSearchBrowser def myBrowser hoogle)
+        ((modm .|. mod1Mask, xK_f), promptSearchBrowser def myBrowser flora)
       , ((modm .|. mod1Mask, xK_n), promptSearchBrowser def myBrowser nixos)
-      , ((modm .|. mod1Mask, xK_N), promptSearchBrowser def myBrowser noogle)
-      , ((modm .|. mod1Mask, xK_K), promptSearchBrowser def myBrowser kagi)
-      , ((modm .|. mod1Mask, xK_g), promptSearchBrowser def myBrowser google)
-      , ((modm .|. mod1Mask, xK_G), promptSearchBrowser def myBrowser github)
+      , -- , ((modm .|. mod1Mask, xK_N), promptSearchBrowser def myBrowser noogle)
+        -- , ((modm .|. mod1Mask, xK_K), promptSearchBrowser def myBrowser kagi)
+        ((modm .|. mod1Mask, xK_g), promptSearchBrowser def myBrowser kagi)
+        -- , ((modm .|. mod1Mask, xK_G), promptSearchBrowser def myBrowser github)
       ]
       ++
       --
