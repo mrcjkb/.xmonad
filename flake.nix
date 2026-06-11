@@ -8,10 +8,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zen-browser.url = "github:mrcjkb/zen-browser-flake";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,11 +96,13 @@
     // {
       nixosModules.default = {pkgs, ...}: {
         imports = [
-          (import ./nix/zen-browser {inherit inputs pkgs;})
           ./nix/xmonad-session
         ];
         nixpkgs.overlays = [
           overlay
+        ];
+        environment.systemPackages = [
+          inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
         ];
       };
       overlays.default = overlay;
