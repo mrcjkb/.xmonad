@@ -69,6 +69,7 @@
       ++ (with pkgs; [
         ranger # TUI file browser
         alacritty
+        ghostty
         dmenu # Expected by xmonad
         gxmessage # Used by xmonad to show help
         xkill # Kill X windows with the cursor
